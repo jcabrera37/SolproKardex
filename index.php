@@ -5,7 +5,7 @@
 
 if(!empty($_SESSION['active']))
 {
-  header('location: sistema/SolproKardex.php');
+  header('location: sistema/');
 
 }
 else{
@@ -38,7 +38,7 @@ else{
           if($_SESSION['idRol'] == 1)
           {
             ?>
-            <meta http-equiv="refresh" content="1; url= sistema/SolproKardex.php"/>
+            <meta http-equiv="refresh" content="1; url= sistema/SolProKardex.php"/>
             <?php
 
           }else{
@@ -59,62 +59,56 @@ else{
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>SolproKardex</title>
-  <!-- base:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/logo.ico" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>SolproKardex</title>
+
+<!-- base:css -->
+<link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+<!-- css -->
+<link rel="stylesheet" href="css/style.css">
+<!-- endinject -->
+<link rel="shortcut icon" href="images/logo.ico" />
 </head>
 
 <body>
-  <div class="container-scroller d-flex">
-    <div class="container-fluid page-body-wrapper full-page-wrapper d-flex">
-      <div class="content-wrapper d-flex align-items-center auth px-0">
-        <div class="row w-100 mx-0">
-          <div class="col-lg-4 mx-auto">
-            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="images/logo.ico" alt="logo">
-              </div>
-              <h4>Hola! Bienvenido</h4>
-              <h6 class="font-weight-light">Inicia sesión para continuar.</h6>
-              <form class="pt-3" action="" method="post">
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" id="usuario" name="usuario" placeholder="Usuario">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
-                </div>
-                <div class="mt-3">
-                  <!--<a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="">Inicia Sesión</a>-->
-                  <input type="submit" value="INGRESAR" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
-                </div>
-                
-              </form>
+<div class="container-scroller d-flex">
+  <div class="container-fluid page-body-wrapper full-page-wrapper d-flex">
+    <div class="content-wrapper d-flex align-items-center auth px-0">
+      <div class="row w-100 mx-0">
+        <div class="col-lg-4 mx-auto">
+          <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+            <div class="brand-logo">
+              <img src="images/logo.ico" alt="logo">
             </div>
+            <h4>Hola! Bienvenido</h4>
+            <h6 class="font-weight-light">Inicia sesión para continuar.</h6>
+            <form class="pt-3" action="" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control form-control-lg" id="usuario" name="usuario" placeholder="Usuario">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
+              </div>
+              <div class="mt-3">
+                <!--<a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="">Inicia Sesión</a>-->
+                <input type="submit" value="INGRESAR" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+              </div>
+            </form>
           </div>
         </div>
       </div>
-
     </div>
-    
   </div>
-  
-  <script src="vendors/js/vendor.bundle.base.js"></script>
+</div>
 
-  <script src="vendors/js/off-canvas.js"></script>
-  <script src="vendors/js/hoverable-collapse.js"></script>
-  <script src="vendors/js/template.js"></script>
-  
+<script src="vendors/js/vendor.bundle.base.js"></script>
+
+<script src="vendors/js/off-canvas.js"></script>
+<script src="vendors/js/hoverable-collapse.js"></script>
+<script src="vendors/js/template.js"></script>
+
 </body>
 
 </html>
