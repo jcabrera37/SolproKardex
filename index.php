@@ -3,48 +3,55 @@
   $mensaje = '';
   session_start();
 
-  if(!empty($_SESSION['active']))
+if(!empty($_SESSION['active']))
+{
+  header('location: sistema/SolproKardex.php');
+
+}
+else{
+  if(!empty($_POST))
   {
-    header('location: sistema/SolproKardex.php');
-
-  }
-  else{
-    if(!empty($_POST))
+  if(empty($_POST['usuario']) || empty($_POST['password']))
   {
-    if(empty($_POST['usuario']) || empty($_POST['password']))
-    {
-      $mensaje = "Ingrese usuario y Contraseña";
-    } else{
-      require_once "conexionBD.php";
-      $usuario = $_POST['usuario'];
-      $contrasena = $_POST['password'];
+    $mensaje = "Ingrese usuario y Contraseña";
+  } else{
+    require_once "conexionBD.php";
+    $usuario = $_POST['usuario'];
+    $contrasena = $_POST['password'];
 
-      $query = mysqli_query($conection, "SELECT * FROM usuarios WHERE usuario = '$usuario' AND clave = '$contrasena'");
-					mysqli_close($conection);
-					$result = mysqli_num_rows($query);
+    $query = mysqli_query($conection, "SELECT * FROM usuarios WHERE usuario = '$usuario' AND clave = '$contrasena'");
+				mysqli_close($conection);
+				$result = mysqli_num_rows($query);
 
-          if ($result > 0) 
-					{
+        if ($result > 0) 
+				{
+          
+          $data = mysqli_fetch_array($query);
+
+          $_SESSION['active'] = true;
+					$_SESSION['idUser'] = $data['id_user'];
+					$_SESSION['Nombre'] = $data['nombre'];
+					$_SESSION['codSerie'] = $data['codserie'];
+					$_SESSION['acceso'] = $data['accesoempresa'];
+					$_SESSION['idRol'] = $data['id_rol'];
+
+          if($_SESSION['idRol'] == 1)
+          {
             ?>
             <meta http-equiv="refresh" content="1; url= sistema/SolproKardex.php"/>
             <?php
-            $data = mysqli_fetch_array($query);
 
-            $_SESSION['active'] = true;
-						$_SESSION['idUser'] = $data['id_user'];
-						$_SESSION['Nombre'] = $data['nombre'];
-						$_SESSION['codSerie'] = $data['codserie'];
-						$_SESSION['acceso'] = $data['accesoempresa'];
-						$_SESSION['idRol'] = $data['id_rol'];
-            
           }else{
-            $mensaje = "Datos de inicio de sesión incorrectos";
-            
+            ?>
+            <meta http-equiv="refresh" content="1; url= sistema/usuario.php"/>
+            <?php
           }
-  }
-  
-
-  }
+        }else{
+          $mensaje = "Datos de inicio de sesión incorrectos";
+            
+        }
+      }
+    }
   }
 
 ?>
