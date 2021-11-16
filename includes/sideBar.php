@@ -1,77 +1,63 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
         <li class="nav-item sidebar-category">
-          <p>Navigation</p>
+          <p>Menu Principal</p>
           <span></span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../index.html">
+          <a class="nav-link" href="../sistema/SolProKardex.php">
             <i class="mdi mdi-view-quilt menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
+            <span class="menu-title" > SolProKardex
+            </span>
           </a>
         </li>
         <li class="nav-item sidebar-category">
           <p>Components</p>
           <span></span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <i class="mdi mdi-palette menu-icon"></i>
-            <span class="menu-title">UI Elements</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
-            </ul>
-          </div>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="../../pages/forms/basic_elements.html">
-            <i class="mdi mdi-view-headline menu-icon"></i>
-            <span class="menu-title">Form elements</span>
+            <i class="mdi mdi-store menu-icon"></i>
+            <span class="menu-title">Ventas</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../pages/charts/chartjs.html">
-            <i class="mdi mdi-chart-pie menu-icon"></i>
-            <span class="menu-title">Charts</span>
+            <i class="mdi mdi-shopping menu-icon"></i>
+            <span class="menu-title">Compras</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../pages/tables/basic-table.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Tables</span>
+            <i class="mdi mdi-transcribe menu-icon"></i>
+            <span class="menu-title">Ajustes</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../pages/icons/mdi.html">
-            <i class="mdi mdi-emoticon menu-icon"></i>
-            <span class="menu-title">Icons</span>
-          </a>
-        </li>
+
         <li class="nav-item sidebar-category">
-          <p>Pages</p>
+          <p>Configuraciones</p>
           <span></span>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-            <i class="mdi mdi-account menu-icon"></i>
-            <span class="menu-title">User Pages</span>
+            <i class="mdi mdi mdi-settings-box menu-icon"></i>
+            <span class="menu-title">Registros</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login-2.html"> Login 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register-2.html"> Register 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Usuarios </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Categorias </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Secciones </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Marcas </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Medidas </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Consultas y Reportes </a></li>
             </ul>
           </div>
         </li>
+        
+
         <li class="nav-item sidebar-category">
           <p>Apps</p>
           <span></span>
@@ -82,10 +68,6 @@
             <span class="menu-title">Documentation</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://www.bootstrapdash.com/demo/spica/template/">
-            <button class="btn bg-danger btn-sm menu-title">Upgrade to pro</button>
-          </a>
-        </li>
+
       </ul>
     </nav>
