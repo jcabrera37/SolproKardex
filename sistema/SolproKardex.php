@@ -40,19 +40,19 @@
                       <thead>
                         <tr>
                           <th>
-                            User
+                            Usuario
                           </th>
                           <th>
-                            First name
+                            Nombre Empleado
                           </th>
                           <th>
-                            Progress
+                            Ventas
                           </th>
                           <th>
-                            Amount
+                            Monto
                           </th>
                           <th>
-                            Deadline
+                            Meta
                           </th>
                         </tr>
                       </thead>
@@ -70,7 +70,7 @@
                             </div>
                           </td>
                           <td>
-                            $ 77.99
+                            Q 77.99
                           </td>
                           <td>
                             May 15, 2015
@@ -89,7 +89,7 @@
                             </div>
                           </td>
                           <td>
-                            $245.30
+                            Q245.30
                           </td>
                           <td>
                             July 1, 2015
@@ -108,7 +108,7 @@
                             </div>
                           </td>
                           <td>
-                            $138.00
+                            Q138.00
                           </td>
                           <td>
                             Apr 12, 2015
@@ -127,7 +127,7 @@
                             </div>
                           </td>
                           <td>
-                            $ 77.99
+                            Q 77.99
                           </td>
                           <td>
                             May 15, 2015
@@ -146,7 +146,7 @@
                             </div>
                           </td>
                           <td>
-                            $ 160.25
+                            Q 160.25
                           </td>
                           <td>
                             May 03, 2015
@@ -165,7 +165,7 @@
                             </div>
                           </td>
                           <td>
-                            $ 123.21
+                            Q 123.21
                           </td>
                           <td>
                             April 05, 2015
@@ -184,7 +184,7 @@
                             </div>
                           </td>
                           <td>
-                            $ 150.00
+                            Q 150.00
                           </td>
                           <td>
                             June 16, 2015
