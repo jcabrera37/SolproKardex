@@ -5,7 +5,7 @@
 
 if(!empty($_SESSION['active']))
 {
-  header('location: sistema/');
+  header('location: sistema/SolProKardex.php');
 
 }
 else{
