@@ -1,9 +1,9 @@
 <?php
 session_start();
 include "../includes/funcionFecha.php";
-if (empty($_SESSION['active'])) 
+if ($_SESSION['idRol'] != 1) 
 	{
-		header('location: ../');
+		header("location: ../sistema/usuario.php");
 	}
 include "../conexionBD.php";
 
@@ -26,16 +26,16 @@ if (!empty($_POST))
         $query_insert = mysqli_query($conection,"INSERT INTO `usuarios` (`id_user`, `nombre`, `usuario`, `clave`, `codserie`, `accesoempresa`, `id_rol`, `estatus`) 
                                                 VALUES (NULL, '$nombre', '$usuario', '$clave', '$codserie', '$acceso', '$rol', '$estatus');");
                                                 echo $query_insert;
-                 if ($query_insert) 
-                 {
+                if ($query_insert) 
+                {
                     echo '<script type="text/javascript">
                     alert("Usuario creado correctamente!");
                     </script>';
-                 }else{
+                }else{
                     echo '<script type="text/javascript">
                     alert("Error al crear el usuario");
                     </script>';
-                 }
+                }
 
     }
 }
@@ -98,7 +98,7 @@ if (!empty($_POST))
                     <input type="text" class="form-control"  name="acceso" placeholder="Acceso">
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
-                <button class="btn btn-light">Cancelar</button>
+                <a href="SolproKardex.php" class="btn btn-light">Cancelar</a>
                 </form>
             </div>
             </div>

@@ -1,9 +1,9 @@
 <?php
   session_start();
   include "../includes/funcionFecha.php";
-  if (empty($_SESSION['active'])) 
+  if ($_SESSION['idRol'] != 1) 
 	{
-		header('location: ../');
+		header("location: ../sistema/usuario.php");
 	}
 ?>
 

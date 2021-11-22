@@ -47,7 +47,7 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Usuarios </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/ListaUsuarios.php"> Usuarios </a></li>
               <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Categorias </a></li>
               <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Secciones </a></li>
               <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Marcas </a></li>
