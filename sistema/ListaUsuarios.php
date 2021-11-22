@@ -100,7 +100,7 @@ if ($_SESSION['idRol'] != 1)
                         <?php echo $datos['codserie'];?>
                         </td>
                         <td>
-                        <a class="btn btn-dark sm" href="editar_usuario.php?id=<?php echo $datos['id_user']?>">Editar</a>
+                        <a class="btn btn-dark sm" href="../sistema/actualizarUsuario.php?id=<?php echo $datos['id_user']?>">Editar</a>
                                 |
                         <a class="btn btn-danger sm" href="eliminar_confirmar_usuario.php?id=<?php echo $datos['id_user']?>">Eliminar</a>
 					    </td>
