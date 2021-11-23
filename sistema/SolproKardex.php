@@ -1,6 +1,7 @@
 <?php
   session_start();
   include "../includes/funcionFecha.php";
+  
   if ($_SESSION['idRol'] != 1) 
 	{
 		header("location: ../sistema/usuario.php");
@@ -15,7 +16,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>SolproKardex - Admin</title>
-  
+  <link rel="shortcut icon" href="../images/logo.ico">
   <?php include "../includes/includes.php"; ?>
 
 </head>
@@ -206,6 +207,7 @@
         <?php include "../includes/footer.php";?>
         <!-- partial -->
       </div>
+      
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->

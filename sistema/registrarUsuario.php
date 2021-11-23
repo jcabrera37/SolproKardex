@@ -52,7 +52,7 @@ if (!empty($_POST))
 <title>Registro de usuarios</title>
 <?php include "../includes/includes.php";?>
 
-<link rel="shortcut icon" href="../images/logo.ico" />
+
 </head>
 
 <body>

@@ -6,7 +6,7 @@ if ($_SESSION['idRol'] != 1)
 		header("location: ../sistema/usuario.php");
 	}
 include "../conexionBD.php";
-/*
+
 if (!empty($_POST)) 
 {
     if(empty($_POST['nombre']) || empty($_POST['usuario']) || empty($_POST['clave']) || empty($_POST['codserie']) || empty($_POST['acceso']) )
@@ -15,6 +15,7 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
+        $iduser = $_GET['id'];
         $nombre = $_POST['nombre'];
         $usuario = $_POST['usuario'];
         $clave = $_POST['clave'];
@@ -23,27 +24,26 @@ if (!empty($_POST))
         $rol = 2; //rol 1 administrador y rol 2 usuario
         $estatus = 1; //activo 1 desactivado es 2
 
-        $query_insert = mysqli_query($conection,"INSERT INTO `usuarios` (`id_user`, `nombre`, `usuario`, `clave`, `codserie`, `accesoempresa`, `id_rol`, `estatus`) 
-                                                VALUES (NULL, '$nombre', '$usuario', '$clave', '$codserie', '$acceso', '$rol', '$estatus');");
-                                                echo $query_insert;
-                if ($query_insert) 
+        $query_actualizar = mysqli_query($conection,"UPDATE `usuarios` SET `usuario` = '$usuario', `clave` = '$clave', `nombre` = '$nombre', `codserie` = '$codserie', `accesoempresa` = '$acceso', `id_rol` = '2', `estatus` = '1' WHERE `usuarios`.`id_user` = '$iduser';");
+                //echo $query_insert;
+                if ($query_actualizar) 
                 {
                     echo '<script type="text/javascript">
-                    alert("Usuario creado correctamente!");
+                    alert("Usuario modificado correctamente!");
                     </script>';
                 }else{
                     echo '<script type="text/javascript">
-                    alert("Error al crear el usuario");
+                    alert("Error al modificar el usuario");
                     </script>';
                 }
 
     }
-}*/
+}
 
 //mostrar datos desde lista
 
 if(empty($_GET['id'])){
-    header('location: ListaUsuarios.php');
+    header('location: VistaUsuarios.php');
     mysqli_close($conection);
 }
 $id_usuario_modificar = $_GET['id'];
@@ -78,7 +78,7 @@ if($resultado_busq == 0){
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Registro de usuarios</title>
+<title>Actualización de usuarios</title>
 <?php include "../includes/includes.php";?>
 
 <link rel="shortcut icon" href="../images/logo.ico" />
@@ -101,10 +101,9 @@ if($resultado_busq == 0){
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Registro de Usuarios</h4>
+                <h4 class="card-title">Actualizar Usuarios</h4>
                 <p class="card-description">
-                    Registrar
-                </p>
+                    Modificar usuarios               </p>
                 <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre</label>
@@ -112,22 +111,22 @@ if($resultado_busq == 0){
                 </div>
                 <div class="form-group">
                     <label >Usuario</label>
-                    <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+                    <input type="text" class="form-control" name="usuario" placeholder="Usuario" value="<?php echo $usuario; ?>">
                 </div>
                 <div class="form-group">
                     <label>Clave</label>
-                    <input type="text" class="form-control"  name="clave" placeholder="Clave">
+                    <input type="text" class="form-control"  name="clave" placeholder="Clave" value="<?php echo $clave; ?>">
                 </div>
                 <div class="form-group">
                     <label>Codigo Serie</label>
-                    <input type="text" class="form-control"  name="codserie" placeholder="Codigo">
+                    <input type="text" class="form-control"  name="codserie" placeholder="Codigo" value="<?php echo $cod; ?>">
                 </div>
                 <div class="form-group">
                     <label >Acceso a empresa</label>
-                    <input type="text" class="form-control"  name="acceso" placeholder="Acceso">
+                    <input type="text" class="form-control"  name="acceso" placeholder="Acceso" value="<?php echo $acceso; ?>">
                 </div>
-                <button type="submit" class="btn btn-primary mr-2">Guardar</button>
-                <a href="SolproKardex.php" class="btn btn-light">Cancelar</a>
+                <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
+                <a href="SolproKardex.php" class="btn btn-danger">Cancelar</a>
                 </form>
             </div>
             </div>

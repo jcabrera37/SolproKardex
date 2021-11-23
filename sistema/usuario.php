@@ -1,10 +1,17 @@
 <?php
   session_start();
   include "../includes/funcionFecha.php";
-  if ($_SESSION['idRol'] >= 3) 
-	{
-		header("location: ./");
-	}
+  if(!empty($_SESSION['active'])){
+    if ($_SESSION['idRol'] >= 3) 
+    {
+      header("location: ./");
+    }
+
+  }else{
+    header("location: ../");
+    //session_destroy();
+  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -9,7 +9,7 @@
     if(!$conection){
         echo "Error al conectarse a la base de datos!";
     }else{
-        echo"conexion establecida";
+        //echo"conexion establecida";
     }
 
 ?>
