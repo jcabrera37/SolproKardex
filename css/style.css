@@ -18798,7 +18798,7 @@ code {
   font-size: inherit;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1366px) {
   .footer {
     margin-left: 0;
     width: 100%;
@@ -20474,6 +20474,7 @@ dl li {
 }
 
 .sidebar .nav {
+
   overflow: hidden;
   flex-wrap: nowrap;
   flex-direction: column;

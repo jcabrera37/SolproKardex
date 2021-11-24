@@ -42,7 +42,7 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <i class="mdi mdi mdi-settings-box menu-icon"></i>
-            <span class="menu-title">Registros</span>
+            <span class="menu-title">Configuraciones</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="auth">

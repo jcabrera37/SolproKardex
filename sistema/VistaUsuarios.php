@@ -15,7 +15,7 @@ if ($_SESSION['idRol'] != 1)
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Usuarios</title>
+<title>Usuarios - Admin</title>
 <?php include "../includes/includes.php";?>
 </head>
 
@@ -33,7 +33,7 @@ if ($_SESSION['idRol'] != 1)
         <div class="row">
             
             <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
+            <div class="card">
                 <div class="card-body">
                 <a href="registrarUsuario.php"> 
                     <h4 class="card-title">Usuarios 
@@ -70,12 +70,13 @@ if ($_SESSION['idRol'] != 1)
                             Ver información
                         </th>
                         </tr>
-                      </thead>
-                      <?php
+                    </thead>
+                    <?php
                         $consulta = mysqli_query($conection, "SELECT u.id_user, u.usuario, u.nombre, u.codserie, u.id_rol, r.nombre_rol
                         from usuarios u
                         INNER JOIN rol r
-                        on u.id_rol = r.id_rol;");
+                        on u.id_rol = r.id_rol
+                        WHERE u.estatus = 1;");
 
                         mysqli_close($conection);
 
@@ -84,8 +85,8 @@ if ($_SESSION['idRol'] != 1)
                         if ($resultado > 0){
                             while ($datos = mysqli_fetch_array($consulta)){
                                 ?>
-                      <tbody>
-                      <tr>
+                    <tbody>
+                    <tr>
                         <td class="py-1">
                         <?php echo $datos['id_user']; ?>
                         </td>
@@ -105,26 +106,23 @@ if ($_SESSION['idRol'] != 1)
                         <a class="btn btn-dark sm" href="../sistema/actualizarUsuario.php?id=<?php echo $datos['id_user']?>">Editar</a>
                         <?php if($datos['id_user'] != 1) { ?>
                         |
-                        <a class="btn btn-danger sm" href="eliminar_confirmar_usuario.php?id=<?php echo $datos['id_user']?>">Eliminar</a>
+                        <a class="btn btn-danger sm" href="eliminarUsuario.php?id=<?php echo $datos['id_user']?>">Eliminar</a>
                             <?php }?>
                         </td>
-                        <td><a class="btn btn-warning sm" href="detalle_alumno.php?id=<?php echo $datos['id_user']?>">Ver</a></td>
+                        <td><a class="btn btn-warning sm" href="#?id=<?php echo $datos['id_user']?>">Ver</a></td>
                         </tr>
                         
-                      </tbody>
-                      <?php 
+                    </tbody>
+                    <?php 
 						
 					}
 				}
-
 			?>
                     </table>
-                  </div>
                 </div>
-              </div>
+                </div>
             </div>
-
-           
+            </div>
         </div><!-- row ends -->
         </div><!-- content-wrapper ends -->
         

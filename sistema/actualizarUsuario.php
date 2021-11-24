@@ -55,15 +55,15 @@ mysqli_close($conection);
 $resultado_busq = mysqli_num_rows($consulta_usurario);
 
 if($resultado_busq == 0){
-    header('location: ListaUsuarios.php');
-}else{
-    while($datos = mysqli_fetch_array($consulta_usurario)){
-        $idusuario = $datos['id_user'];
-        $nombre = $datos['nombre'];
-        $usuario = $datos['usuario'];
-        $clave = $datos['clave'];
-        $cod = $datos['codserie'];
-        $acceso = $datos['accesoempresa'];
+        header('location: ListaUsuarios.php');
+    }else{
+        while($datos = mysqli_fetch_array($consulta_usurario)){
+            $idusuario = $datos['id_user'];
+            $nombre = $datos['nombre'];
+            $usuario = $datos['usuario'];
+            $clave = $datos['clave'];
+            $cod = $datos['codserie'];
+            $acceso = $datos['accesoempresa'];
 
     }
 }

@@ -76,7 +76,8 @@ if (!empty($_POST))
                 <p class="card-description">
                     Registrar
                 </p>
-                <form class="forms-sample" method="post">
+
+            <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre</label>
                     <input type="text" class="form-control"  name="nombre" placeholder="Nombre">
@@ -99,7 +100,7 @@ if (!empty($_POST))
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
                 <a href="SolproKardex.php" class="btn btn-light">Cancelar</a>
-                </form>
+            </form>
             </div>
             </div>
         </div>
