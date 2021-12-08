@@ -48,9 +48,7 @@ if ($_SESSION['idRol'] != 1)
                     <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>
-                            Id
-                        </th>
+                        
                         <th>
                             Usuario
                         </th>
@@ -87,9 +85,8 @@ if ($_SESSION['idRol'] != 1)
                                 ?>
                     <tbody>
                     <tr>
-                        <td class="py-1">
-                        <?php echo $datos['id_user']; ?>
-                        </td>
+                        <input type="hidden" name="idusuario" value="<?php echo $datos['id_user']; ?>">
+                        
                         <td>
                         <?php echo $datos['usuario']; ?>
                         </td>
@@ -104,7 +101,7 @@ if ($_SESSION['idRol'] != 1)
                         </td>
                         <td>
                         <a class="btn btn-dark sm" href="../sistema/actualizarUsuario.php?id=<?php echo $datos['id_user']?>">Editar</a>
-                        <?php if($datos['id_user'] != 1) { ?>
+                        <?php if($datos['id_rol'] != 1) { ?>
                         |
                         <a class="btn btn-danger sm" href="eliminarUsuario.php?id=<?php echo $datos['id_user']?>">Eliminar</a>
                             <?php }?>

@@ -21,19 +21,21 @@ if (!empty($_POST))
         $clave = $_POST['clave'];
         $codserie = $_POST['codserie'];
         $acceso = $_POST['acceso'];
-        $rol = 2; //rol 1 administrador y rol 2 usuario
+        $rol = $_POST['tipo']; 
         $estatus = 1; //activo 1 desactivado es 2
 
-        $query_actualizar = mysqli_query($conection,"UPDATE `usuarios` SET `usuario` = '$usuario', `clave` = '$clave', `nombre` = '$nombre', `codserie` = '$codserie', `accesoempresa` = '$acceso', `id_rol` = '2', `estatus` = '1' WHERE `usuarios`.`id_user` = '$iduser';");
+        $query_actualizar = mysqli_query($conection,"UPDATE `usuarios` SET `usuario` = '$usuario', `clave` = '$clave', `nombre` = '$nombre', `codserie` = '$codserie', `accesoempresa` = '$acceso', `id_rol` = '$rol', `estatus` = '1' WHERE `usuarios`.`id_user` = '$iduser';");
                 //echo $query_insert;
                 if ($query_actualizar) 
                 {
                     echo '<script type="text/javascript">
                     alert("Usuario modificado correctamente!");
+                    self.location = "VistaUsuarios.php"
                     </script>';
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al modificar el usuario");
+                    self.location = "VistaUsuarios.php"
                     </script>';
                 }
 
@@ -50,7 +52,7 @@ $id_usuario_modificar = $_GET['id'];
 
 $consulta_usurario = mysqli_query($conection, "SELECT * FROM usuarios WHERE id_user = $id_usuario_modificar");
 
-mysqli_close($conection);
+//mysqli_close($conection);
 
 $resultado_busq = mysqli_num_rows($consulta_usurario);
 
@@ -64,6 +66,7 @@ if($resultado_busq == 0){
             $clave = $datos['clave'];
             $cod = $datos['codserie'];
             $acceso = $datos['accesoempresa'];
+            
 
     }
 }
@@ -125,8 +128,30 @@ if($resultado_busq == 0){
                     <label >Acceso a empresa</label>
                     <input type="text" class="form-control"  name="acceso" placeholder="Acceso" value="<?php echo $acceso; ?>">
                 </div>
+                <div class="form-group">
+                    <?php 
+                        
+						$query_tipo = mysqli_query($conection,"SELECT * FROM `rol`" );
+						$result_tipo = mysqli_num_rows($query_tipo);
+                        mysqli_close($conection);
+					?>
+                    <label >Tipo de Usuario</label>
+                    <select name="tipo" id="agrTipo" class="form-control">
+                    <?php 
+					if ($result_tipo > 0) 
+						{
+							while ($data_tipo = mysqli_fetch_array($query_tipo)) {
+					?>
+                        <option value="<?php echo $data_tipo['id_rol'] ?>"  name="tipo"><?php echo $data_tipo["nombre_rol"] ?></option>
+                        
+                    <?php 
+							}
+						}
+					?>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
-                <a href="SolproKardex.php" class="btn btn-danger">Cancelar</a>
+                <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
                 </form>
             </div>
             </div>

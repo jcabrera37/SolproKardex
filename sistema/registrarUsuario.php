@@ -20,7 +20,7 @@ if (!empty($_POST))
         $clave = $_POST['clave'];
         $codserie = $_POST['codserie'];
         $acceso = $_POST['acceso'];
-        $rol = 2; //rol 1 administrador y rol 2 usuario
+        $rol = $_POST['tipo']; 
         $estatus = 1; //activo 1 desactivado es 2
 
         $query_insert = mysqli_query($conection,"INSERT INTO `usuarios` (`id_user`, `nombre`, `usuario`, `clave`, `codserie`, `accesoempresa`, `id_rol`, `estatus`) 
@@ -30,10 +30,14 @@ if (!empty($_POST))
                 {
                     echo '<script type="text/javascript">
                     alert("Usuario creado correctamente!");
-                    </script>';
+                    self.location = "VistaUsuarios.php"
+                    </script>'
+                    ;
+
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al crear el usuario");
+                    self.location = "VistaUsuarios.php"
                     </script>';
                 }
 
@@ -98,8 +102,28 @@ if (!empty($_POST))
                     <label >Acceso a empresa</label>
                     <input type="text" class="form-control"  name="acceso" placeholder="Acceso">
                 </div>
+                <div class="form-group">
+                    <?php 
+						$query_tipo = mysqli_query($conection,"SELECT * FROM `rol`" );
+						$result_tipo = mysqli_num_rows($query_tipo);
+					?>
+                    <label >Tipo de Usuario</label>
+                    <select name="tipo" id="agrTipo" class="form-control">
+                    <?php 
+					if ($result_tipo > 0) 
+						{
+							while ($data_tipo = mysqli_fetch_array($query_tipo)) {
+					?>
+                        <option value="<?php echo $data_tipo['id_rol'] ?>"  name="tipo"><?php echo $data_tipo["nombre_rol"] ?></option>
+                        
+                    <?php 
+							}
+						}
+					?>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
-                <a href="SolproKardex.php" class="btn btn-light">Cancelar</a>
+                <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
             </form>
             </div>
             </div>

@@ -8579,7 +8579,17 @@
 *::after {
   box-sizing: border-box;
 }
-
+.alert{
+	font-family: 'Arial';
+	font-size: 16px;
+	text-align: center;
+  color: #cc2127;
+  
+}
+.alert p{
+	padding: 10px;
+ 
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;

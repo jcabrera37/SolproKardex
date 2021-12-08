@@ -12,7 +12,7 @@
           </a>
         </li>
         <li class="nav-item sidebar-category">
-          <p>Components</p>
+          <p>Menú principal</p>
           <span></span>
         </li>
         
@@ -56,6 +56,28 @@
             </ul>
           </div>
         </li>
+
+        <li class="nav-item sidebar-category">
+          <p>Inventario</p>
+          <span></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-palette menu-icon"></i>
+            <span class="menu-title">Inventario</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="#">Inventairo Valuado</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Inventairo por Categoría</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Estadística</a></li>
+            </ul>
+          </div>
+        </li>
+
+        
+
         
 
         <li class="nav-item sidebar-category">
