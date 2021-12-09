@@ -20690,7 +20690,7 @@ dl li {
   -ms-transition: background 0.25s ease;
   background: url(../images/navbar-cover.jpg) center center no-repeat;
   background-size: cover;
-  height: 162px;
+  height: 75px;
   width: auto;
 }
 
@@ -20725,7 +20725,7 @@ dl li {
   display: inline-block;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .navbar .navbar-menu-wrapper .navbar-brand-wrapper .navbar-brand.brand-logo img {
     height: 36px;
   }
@@ -20816,7 +20816,7 @@ dl li {
   margin-top: 0;
   right: 0;
   left: auto;
-  top: 65px;
+  top: 55px;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item {

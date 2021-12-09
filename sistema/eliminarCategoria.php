@@ -9,57 +9,53 @@
 
     if (!empty($_POST))
 	{
-		$idusuario = $_POST['idusuario'];
+		$IDELIMINAR = $_POST['IDCATEGORIA'];
 
 		//$query_delete = mysqli_query($conection, "DELETE FROM usuario WHERE idusuario = $idusuario");
 		
-		$query_delete = mysqli_query($conection, "UPDATE `usuarios` SET `estatus` = '0' WHERE `usuarios`.`id_user` = '$idusuario'");
+		$query_delete = mysqli_query($connectionTrans, "UPDATE `CATEGORIAS` SET `ESTATUS` = '0' WHERE `CATEGORIAS`.`IDCATEGORIA` = '$IDELIMINAR';");
 		mysqli_close($conection);
 
 		if ($query_delete) 
 		{
       echo '<script type="text/javascript">
-      alert("Registro eliminado correctamente!");
-      self.location = "VistaUsuarios.php"
-      </script>'
-      ;
+                    alert("Registro eliminado correctamente!");
+                    self.location = "VistaCategorias.php"
+                    </script>'
+                    ;
 		}else{
 			echo '<script type="text/javascript">
-      alert("Error al eliminar el registro!");
-      self.location = "VistaUsuarios.php"
-      </script>'
-      ;
+                    alert("Error al eliminar el registro!");
+                    self.location = "VistaCategorias.php"
+                    </script>'
+                    ;
 		}
-
 	}
 
     //llenar datos del usuario seleccionado
-    if (empty($_REQUEST['id']) || $_REQUEST['id'] == 1 ) 
+    if (empty($_REQUEST['id'])) 
 	{
-		header("location: ../sistema/VistaUsuarios.php");
+		header("location: ../sistema/VistaCategorias.php");
 		mysqli_close($conection);
 	}else{
 
-		$idusuario = $_REQUEST['id'];
+		$IDCATEGORIA = $_REQUEST['id'];
         //echo $idusuario;
 
-		$query = mysqli_query($conection, "SELECT u.id_user, u.usuario, u.nombre, u.codserie, u.id_rol, r.nombre_rol
-                                            from usuarios u
-                                            INNER JOIN rol r
-                                            on u.id_rol = r.id_rol
-                                            WHERE u.id_user = '$idusuario';");
+		$query = mysqli_query($connectionTrans, "SELECT * FROM `CATEGORIAS` WHERE IDCATEGORIA = '$IDCATEGORIA';");
 		mysqli_close($conection);
 
 		$result = mysqli_num_rows($query);
 		if ($result > 0) {
 			while ($data = mysqli_fetch_array($query)) {
-				$nombre = $data['nombre'];
-				$usuario = $data['usuario'];
-				$rol = $data['nombre_rol'];
+				$CODIGO = $data['CODIGO'];
+				$CATEGORIA = $data['CATEGORIA'];
+        $IDCATEGORIA = $data['IDCATEGORIA'];
+				
 
 			}
 		}else{
-			header("location: VistaUsuarios.php");
+			header("location: VistaCategorias.php");
 		}
 
 
@@ -74,7 +70,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>SolproKardex - Admin</title>
+  <title>Categorías - Admin</title>
   <link rel="shortcut icon" href="../images/logo.ico">
   <?php include "../includes/includes.php"; ?>
 
@@ -94,18 +90,18 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Eliminar Usuarios</h4>
+                  <h4 class="card-title">Eliminar Categorías</h4>
                   <div class="table-responsive">
                     
 
 
                     <h2>Esta seguro de eliminar el siguiente registro?</h2>
-                    <p>Nombre: <span><?php echo $nombre ?></span></p>
-                    <p>Usuario: <span><?php echo $usuario ?></span></p>
-                    <p>Tipo de Usuario: <span><?php echo $rol ?></span></p>
+                    <p><b>CODIGO DE CATEGORIA: </b><span><?php echo $CODIGO ?></span></p>
+                    <p><b>NOMBRE DE CATEGORIA: </b><span><?php echo $CATEGORIA ?></span></p>
+                    
 
                     <form method="post" action="">
-                        <input type="hidden" name="idusuario"  value="<?php echo $idusuario; ?>">
+                        <input type="hidden" name="IDCATEGORIA"  value="<?php echo $IDCATEGORIA; ?>">
                         <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
                         <input type="submit" value="Aceptar" class="btn btn-primary" >
                     </form>
