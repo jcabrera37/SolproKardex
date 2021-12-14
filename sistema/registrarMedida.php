@@ -9,33 +9,29 @@ include "../conexionBD.php";
 
 if (!empty($_POST)) 
 {
-    if(empty($_POST['codigo']) || empty($_POST['categoria']) )
+    if(empty($_POST['medida']) )
     {
         echo '<script type="text/javascript">
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $codigo = $_POST['codigo'];
-        $categoria = $_POST['categoria'];
-       
-        
+        $medida = $_POST['medida'];
         $estatus = 1; //activo 1 desactivado es 2
 
-        $query_insert = mysqli_query($connectionTrans,"INSERT INTO `CATEGORIAS` (`IDCATEGORIA`, `CODIGO`, `CATEGORIA`) 
-                                                        VALUES (NULL, '$codigo', '$categoria');");
-                                                //echo $query_insert;
+        $query_insert = mysqli_query($connectionTrans,"INSERT INTO `medidas` (`IDMEDIDA`,  `MEDIDA`, `ESTATUS`) 
+                                                    VALUES (NULL, '$medida', '1');");
                 if ($query_insert) 
                 {
                     echo '<script type="text/javascript">
                     alert("Registro creado correctamente!");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaMedidas.php"
                     </script>'
                     ;
 
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al crear el registro");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaMedidas.php"
                     </script>';
                 }
 
@@ -51,7 +47,7 @@ if (!empty($_POST))
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Registro de usuarios</title>
+<title>Registro de secciones</title>
 <?php include "../includes/includes.php";?>
 
 
@@ -65,30 +61,23 @@ if (!empty($_POST))
     
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-
     <?php include "../includes/navBar.php";?>
-
     <div class="main-panel">        
         <div class="content-wrapper">
         <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Registrar nueva categoría</h4>
+                <h4 class="card-title">Registrar nueva medida</h4>
                 <p class="card-description">
-                    Registrar
+                    Agregar
                 </p>
-
             <form class="forms-sample" method="post">
                 <div class="form-group">
-                    <label >Código</label>
-                    <input type="text" class="form-control"  name="codigo" placeholder="Código">
+                    <label >Nombre de unidad de medida</label>
+                    <input type="text" class="form-control" name="medida" placeholder="Nombre de la unidad de medida">
                 </div>
-                <div class="form-group">
-                    <label >Nombre categoría</label>
-                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría">
-                </div>
-                <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
+                <a href="VistaMedidas.php" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
             </form>
             </div>

@@ -51,9 +51,9 @@
               <li class="nav-item"> <a class="nav-link" href="../sistema/VistaCategorias.php"> Categorias </a></li>
               <li class="nav-item"> <a class="nav-link" href="../sistema/VistaSecciones.php"> Secciones </a></li>
               <li class="nav-item"> <a class="nav-link" href="../sistema/VistaFormasDePago.php"> Formas de Pago </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Marcas </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Medidas </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Consultas y Reportes </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaMarcas.php"> Marcas </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaMedidas.php"> Medidas </a></li>
+              <li class="nav-item"> <a class="nav-link" href="#"> Consultas y Reportes </a></li>
             </ul>
           </div>
         </li>
@@ -72,6 +72,7 @@
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="#">Inventairo Valuado</a></li>
               <li class="nav-item"> <a class="nav-link" href="#">Inventairo por Categoría</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarProducto.php">Registrar Productos</a></li>
               <li class="nav-item"> <a class="nav-link" href="#">Estadística</a></li>
             </ul>
           </div>

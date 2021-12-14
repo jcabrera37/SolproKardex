@@ -9,22 +9,24 @@
 
     if (!empty($_POST))
 	{
-		$IDELIMINAR = $_POST['idformaPago'];
+		$IDELIMINAR = $_POST['IDMEDIDA'];
 
-		$query_delete = mysqli_query($connectionTrans, "UPDATE `formasdepago` SET `ESTATUS` = '0' WHERE `formasdepago`.`IDFORMADEPAGO` = '$IDELIMINAR';");
+		//$query_delete = mysqli_query($conection, "DELETE FROM usuario WHERE idusuario = $idusuario");
+		
+		$query_delete = mysqli_query($connectionTrans, "UPDATE `medidas` SET `ESTATUS` = '0' WHERE `medidas`.`IDMEDIDA` = '$IDELIMINAR';");
 		mysqli_close($conection);
 
 		if ($query_delete) 
 		{
       echo '<script type="text/javascript">
                     alert("Registro eliminado correctamente!");
-                    self.location = "VistaFormasDePago.php"
+                    self.location = "VistaMedidas.php"
                     </script>'
                     ;
 		}else{
 			echo '<script type="text/javascript">
                     alert("Error al eliminar el registro!");
-                    self.location = "VistaFormasDePago.php"
+                    self.location = "VistaMedidas.php"
                     </script>'
                     ;
 		}
@@ -34,25 +36,25 @@
     if (empty($_REQUEST['id'])) 
 	{
 		header("location: ../sistema/VistaCategorias.php");
-		mysqli_close($conection);
+		mysqli_close($connectionTrans);
 	}else{
 
-		$idformaPago = $_REQUEST['id'];
+		$IDMEDIDA = $_REQUEST['id'];
         //echo $idusuario;
-		$query = mysqli_query($connectionTrans, "SELECT * FROM `FORMASDEPAGO` WHERE IDFORMADEPAGO = '$idformaPago';");
+
+		$query = mysqli_query($connectionTrans, "SELECT * FROM `medidas` WHERE IDMEDIDA = '$IDMEDIDA';");
 		mysqli_close($conection);
 
 		$result = mysqli_num_rows($query);
-
 		if ($result > 0) {
 			while ($data = mysqli_fetch_array($query)) {
-				$idformaPago = $data['IDFORMADEPAGO'];
-        $codigo = $data['CODIGO'];
-				$formaPago = $data['FORMADEPAGO'];
-        
+				$IDMEDIDA = $data['IDMEDIDA'];
+				$MEDIDA = $data['MEDIDA'];
+				
+
 			}
 		}else{
-			header("location: VistaFormasDePago.php");
+			header("location: VistaCategorias.php");
 		}
 
 
@@ -67,7 +69,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Formas de Pago - Admin</title>
+  <title>MEDIDAS - Admin</title>
   <link rel="shortcut icon" href="../images/logo.ico">
   <?php include "../includes/includes.php"; ?>
 
@@ -87,19 +89,19 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Eliminar Forma de Pago</h4>
+                  <h4 class="card-title">Eliminar Unidad de Medida</h4>
                   <div class="table-responsive">
                     
 
 
                     <h2>Esta seguro de eliminar el siguiente registro?</h2>
-                    <p><b>CODIGO: </b><span><?php echo $codigo ?></span></p>
-                    <p><b>FORMA DE PAGO: </b><span><?php echo $formaPago ?></span></p>
+                    <p><b>Id: </b><span><?php echo $IDMEDIDA ?></span></p>
+                    <p><b>UNIDAD DE MEDIDA: </b><span><?php echo $MEDIDA ?></span></p>
                     
 
                     <form method="post" action="">
-                        <input type="hidden" name="idformaPago"  value="<?php echo $idformaPago; ?>">
-                        <a href="VistaFormasDePago.php" class="btn btn-danger">Cancelar</a>
+                        <input type="hidden" name="IDMEDIDA"  value="<?php echo $IDMEDIDA; ?>">
+                        <a href="VistaMedidas.php" class="btn btn-danger">Cancelar</a>
                         <input type="submit" value="Aceptar" class="btn btn-primary" >
                     </form>
                   </div>

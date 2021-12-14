@@ -9,28 +9,28 @@ include "../conexionBD.php";
 
 if (!empty($_POST)) 
 {
-    if(empty($_POST['codigo']) || empty($_POST['categoria']) )
+    if(empty($_POST['codigo']) || empty($_POST['seccion']) )
     {
         echo '<script type="text/javascript">
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $idcategoria = $_GET['id'];
+        $idseccion = $_GET['id'];
         $codigo = $_POST['codigo'];
-        $categoria = $_POST['categoria'];
+        $seccion = $_POST['seccion'];
 
-        $query_actualizar = mysqli_query($connectionTrans,"UPDATE `categorias` SET `CODIGO` = '$codigo', `CATEGORIA` = '$categoria' 
-                                                            WHERE `categorias`.`IDCATEGORIA` = '$idcategoria';");
+        $query_actualizar = mysqli_query($connectionTrans,"UPDATE `secciones` SET `CODIGO` = '$codigo', `SECCION` = '$seccion' WHERE `secciones`.`IDSECCIONES` = '$idseccion';");
+                //echo $query_insert;
                 if ($query_actualizar) 
                 {
                     echo '<script type="text/javascript">
                     alert("Registro modificado correctamente!");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaSecciones.php"
                     </script>';
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al modificar el registro");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaSecciones.php"
                     </script>';
                 }
 
@@ -40,22 +40,24 @@ if (!empty($_POST))
 //mostrar datos desde lista
 
 if(empty($_GET['id'])){
-    header('location: VistaCategorias.php');
-    mysqli_close($connectionTrans);
+    header('location: VistaSecciones.php');
+    mysqli_close($conection);
 }
 $id_eliminar = $_GET['id'];
 
-$consulta_categoria = mysqli_query($connectionTrans, "SELECT * FROM `categorias` WHERE IDCATEGORIA = $id_eliminar");
+$consulta_seccion = mysqli_query($connectionTrans, "SELECT * FROM `secciones` WHERE IDSECCIONES = $id_eliminar");
 
-$resultado_busq = mysqli_num_rows($consulta_categoria);
+//mysqli_close($conection);
+
+$resultado_busq = mysqli_num_rows($consulta_seccion);
 
 if($resultado_busq == 0){
-        header('location: VistaCategorias.php');
+        header('location: VistaSecciones.php');
     }else{
-        while($datos = mysqli_fetch_array($consulta_categoria)){
-            $idcategoria = $datos['IDCATEGORIA'];
+        while($datos = mysqli_fetch_array($consulta_seccion)){
+            $idseccion = $datos['IDSECCIONES'];
+            $seccion = $datos['SECCION'];
             $codigo = $datos['CODIGO'];
-            $categoria = $datos['CATEGORIA'];
     }
 }
 
@@ -69,7 +71,7 @@ if($resultado_busq == 0){
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Categorias - Admin</title>
+<title>Actualización de usuarios</title>
 <?php include "../includes/includes.php";?>
 
 <link rel="shortcut icon" href="../images/logo.ico" />
@@ -92,21 +94,21 @@ if($resultado_busq == 0){
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Actualizar categorías</h4>
+                <h4 class="card-title">Actualizar Seccion</h4>
                 <p class="card-description">
-                    Modificar Categoría               </p>
+                    Modificar Sección               </p>
                 <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Código</label>
                     <input type="text" class="form-control"  name="codigo" placeholder="Codigo" value="<?php echo $codigo; ?>">
                 </div>
                 <div class="form-group">
-                    <label >Categoría</label>
-                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría" value="<?php echo $categoria; ?>">
+                    <label >Sección</label>
+                    <input type="text" class="form-control" name="seccion" placeholder="Sección" value="<?php echo $seccion; ?>">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
-                <a href="VistaCategorias.php" class="btn btn-danger">Cancelar</a>
+                <a href="VistaSecciones.php" class="btn btn-danger">Cancelar</a>
                 </form>
             </div>
             </div>

@@ -67,29 +67,22 @@ if ($_SESSION['idRol'] != 1)
                             while ($datos = mysqli_fetch_array($consulta)){
                                 ?>
                     <tbody>
-                    <tr>
-                        <input type="hidden" name="IDSECCIONES" value="<?php echo $datos['IDSECCIONES']; ?>">
-                        
-                        <td>
-                        <?php echo $datos['CODIGO']; ?>
-                        </td>
-                        <td>
-                        <?php echo $datos['SECCION']; ?>
-                        </td>
-                        
-                        <td>
-                        <a class="btn btn-dark sm" href="../sistema/actualizarCategoria.php?id=<?php echo $datos['IDSECCIONES']?>">Editar</a>
-                        
-                        |
-                        <a class="btn btn-danger sm" href="eliminarCategoria.php?id=<?php echo $datos['IDSECCIONES']?>">Eliminar</a>
-                           
-                        </td>
-                        
+                        <tr>
+                            <input type="hidden" name="IDSECCIONES" value="<?php echo $datos['IDSECCIONES']; ?>">
+                            <td>
+                                <?php echo $datos['CODIGO']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['SECCION']; ?>
+                            </td>
+                            <td>
+                                <a class="btn btn-dark sm" href="../sistema/actualizarSeccion.php?id=<?php echo $datos['IDSECCIONES']?>">Editar</a>
+                                |
+                                <a class="btn btn-danger sm" href="eliminarSeccion.php?id=<?php echo $datos['IDSECCIONES']?>">Eliminar</a>
+                            </td>
                         </tr>
-                        
                     </tbody>
                     <?php 
-						
 					}
 				}
 			?>

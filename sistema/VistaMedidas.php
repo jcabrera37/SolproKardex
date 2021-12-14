@@ -15,7 +15,7 @@ if ($_SESSION['idRol'] != 1)
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Formas de pago - Admin</title>
+<title>Medidas - Admin</title>
 <?php include "../includes/includes.php";?>
 </head>
 
@@ -31,15 +31,14 @@ if ($_SESSION['idRol'] != 1)
     <div class="main-panel">
         <div class="content-wrapper">
         <div class="row">
-            
             <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <a href="registrarFormaDePago.php"> 
-                    <h4 class="card-title">Formas de pago 
+                <a href="registrarMedida.php"> 
+                    <h4 class="card-title">Medidas 
                         <span class="float-right"> 
                             <button type="button" class="btn btn-success btn-fw" >
-                                <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nueva forma de pago 
+                                <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nueva medida 
                             </button> 
                         </span>
                     </h4>
@@ -49,46 +48,37 @@ if ($_SESSION['idRol'] != 1)
                     <thead>
                         <tr>
                             <th>
-                                Codigo
-                            </th>
+                                No.
+                            </th>   
                             <th>
-                                Forma de pago
+                                Medida
                             </th>
                         </tr>
                     </thead>
                     <?php
-                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `FORMASDEPAGO` WHERE ESTATUS = 1;");
-
+                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `medidas` WHERE ESTATUS = 1;");
                         mysqli_close($conection);
-
                         $resultado = mysqli_num_rows($consulta);
-
                         if ($resultado > 0){
                             while ($datos = mysqli_fetch_array($consulta)){
                                 ?>
                     <tbody>
-                    <tr>
-                        <input type="hidden" name="IDFORMADEPAGO" value="<?php echo $datos['IDFORMADEPAGO']; ?>">
-                        
-                        <td>
-                        <?php echo $datos['CODIGO']; ?>
-                        </td>
-                        <td>
-                        <?php echo $datos['FORMADEPAGO']; ?>
-                        </td>
-                        
-                        <td>
-                        <a class="btn btn-dark sm" href="../sistema/actualizarFormaPago.php?id=<?php echo $datos['IDFORMADEPAGO']?>">Editar</a>
-                        
-                        |
-                        <a class="btn btn-danger sm" href="eliminarFormaDePago.php?id=<?php echo $datos['IDFORMADEPAGO']?>">Eliminar</a>
-                        </td>
-                        
+                        <tr>
+                            
+                            <td>
+                                <?php echo $datos['IDMEDIDA']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['MEDIDA']; ?>
+                            </td>
+                            <td>
+                                <a class="btn btn-dark sm" href="../sistema/actualizarMedida.php?id=<?php echo $datos['IDMEDIDA']?>">Editar</a>
+                                |
+                                <a class="btn btn-danger sm" href="eliminarMedida.php?id=<?php echo $datos['IDMEDIDA']?>">Eliminar</a>
+                            </td>
                         </tr>
-                        
                     </tbody>
                     <?php 
-						
 					}
 				}
 			?>
@@ -99,11 +89,8 @@ if ($_SESSION['idRol'] != 1)
             </div>
         </div><!-- row ends -->
         </div><!-- content-wrapper ends -->
-        
         <?php include "../includes/footer.php";?>
-        
     </div> <!-- main-panel ends -->
-    
     </div>
     <!-- page-body-wrapper ends -->
 </div>

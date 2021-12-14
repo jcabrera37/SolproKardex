@@ -9,22 +9,22 @@
 
     if (!empty($_POST))
 	{
-		$IDELIMINAR = $_POST['idformaPago'];
-
-		$query_delete = mysqli_query($connectionTrans, "UPDATE `formasdepago` SET `ESTATUS` = '0' WHERE `formasdepago`.`IDFORMADEPAGO` = '$IDELIMINAR';");
-		mysqli_close($conection);
+		$IDELIMINAR = $_POST['IDMARCA'];
+		
+		$query_delete = mysqli_query($connectionTrans, "UPDATE `marcas` SET `ESTATUS` = '0' WHERE `marcas`.`IDMARCA` = '$IDELIMINAR';");
+		mysqli_close($connectionTrans);
 
 		if ($query_delete) 
 		{
       echo '<script type="text/javascript">
                     alert("Registro eliminado correctamente!");
-                    self.location = "VistaFormasDePago.php"
+                    self.location = "VistaMarcas.php"
                     </script>'
                     ;
 		}else{
 			echo '<script type="text/javascript">
                     alert("Error al eliminar el registro!");
-                    self.location = "VistaFormasDePago.php"
+                    self.location = "VistaMarcas.php"
                     </script>'
                     ;
 		}
@@ -34,25 +34,23 @@
     if (empty($_REQUEST['id'])) 
 	{
 		header("location: ../sistema/VistaCategorias.php");
-		mysqli_close($conection);
+		mysqli_close($connectionTrans);
 	}else{
 
-		$idformaPago = $_REQUEST['id'];
+		$IDMARCA = $_REQUEST['id'];
         //echo $idusuario;
-		$query = mysqli_query($connectionTrans, "SELECT * FROM `FORMASDEPAGO` WHERE IDFORMADEPAGO = '$idformaPago';");
-		mysqli_close($conection);
+
+		$query = mysqli_query($connectionTrans, "SELECT * FROM `marcas` WHERE IDMARCA = '$IDMARCA';");
+		mysqli_close($connectionTrans);
 
 		$result = mysqli_num_rows($query);
-
 		if ($result > 0) {
 			while ($data = mysqli_fetch_array($query)) {
-				$idformaPago = $data['IDFORMADEPAGO'];
-        $codigo = $data['CODIGO'];
-				$formaPago = $data['FORMADEPAGO'];
-        
+				$ID = $data['IDMARCA'];
+				$MARCA = $data['MARCA'];
 			}
 		}else{
-			header("location: VistaFormasDePago.php");
+			header("location: VistaMarcas.php");
 		}
 
 
@@ -67,7 +65,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Formas de Pago - Admin</title>
+  <title>Marca - Admin</title>
   <link rel="shortcut icon" href="../images/logo.ico">
   <?php include "../includes/includes.php"; ?>
 
@@ -87,19 +85,19 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Eliminar Forma de Pago</h4>
+                  <h4 class="card-title">Eliminar Marca</h4>
                   <div class="table-responsive">
                     
 
 
                     <h2>Esta seguro de eliminar el siguiente registro?</h2>
-                    <p><b>CODIGO: </b><span><?php echo $codigo ?></span></p>
-                    <p><b>FORMA DE PAGO: </b><span><?php echo $formaPago ?></span></p>
+                    <p><b>REGISTRO: </b><span><?php echo $ID ?></span></p>
+                    <p><b>MARCA: </b><span><?php echo $MARCA ?></span></p>
                     
 
                     <form method="post" action="">
-                        <input type="hidden" name="idformaPago"  value="<?php echo $idformaPago; ?>">
-                        <a href="VistaFormasDePago.php" class="btn btn-danger">Cancelar</a>
+                        <input type="hidden" name="IDMARCA"  value="<?php echo $IDMARCA; ?>">
+                        <a href="VistaMarcas.php" class="btn btn-danger">Cancelar</a>
                         <input type="submit" value="Aceptar" class="btn btn-primary" >
                     </form>
                   </div>

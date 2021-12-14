@@ -9,33 +9,29 @@ include "../conexionBD.php";
 
 if (!empty($_POST)) 
 {
-    if(empty($_POST['codigo']) || empty($_POST['categoria']) )
+    if(empty($_POST['marca']))
     {
         echo '<script type="text/javascript">
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $codigo = $_POST['codigo'];
-        $categoria = $_POST['categoria'];
-       
-        
+        $marca = $_POST['marca'];
         $estatus = 1; //activo 1 desactivado es 2
-
-        $query_insert = mysqli_query($connectionTrans,"INSERT INTO `CATEGORIAS` (`IDCATEGORIA`, `CODIGO`, `CATEGORIA`) 
-                                                        VALUES (NULL, '$codigo', '$categoria');");
+        $query_insert = mysqli_query($connectionTrans,"INSERT INTO `marcas` (`IDMARCA`, `MARCA`, `ESTATUS`) 
+                                                        VALUES (NULL, '$marca', '$estatus');");
                                                 //echo $query_insert;
                 if ($query_insert) 
                 {
                     echo '<script type="text/javascript">
                     alert("Registro creado correctamente!");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaMarcas.php"
                     </script>'
                     ;
 
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al crear el registro");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaMarcas.php"
                     </script>';
                 }
 
@@ -51,7 +47,7 @@ if (!empty($_POST))
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Registro de usuarios</title>
+<title>Registro de Marcas</title>
 <?php include "../includes/includes.php";?>
 
 
@@ -74,22 +70,18 @@ if (!empty($_POST))
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Registrar nueva categoría</h4>
+                <h4 class="card-title">Registrar nueva Marca</h4>
                 <p class="card-description">
-                    Registrar
+                    Agregar
                 </p>
 
             <form class="forms-sample" method="post">
                 <div class="form-group">
-                    <label >Código</label>
-                    <input type="text" class="form-control"  name="codigo" placeholder="Código">
+                    <label >Nombre Marca</label>
+                    <input type="text" class="form-control" name="marca" placeholder="Nombre de Marca a registrar">
                 </div>
-                <div class="form-group">
-                    <label >Nombre categoría</label>
-                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría">
-                </div>
-                <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
+                <a href="VistaMarcas.php" class="btn btn-danger">Cancelar</a>
             </form>
             </div>
             </div>

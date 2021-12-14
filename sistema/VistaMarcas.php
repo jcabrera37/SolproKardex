@@ -15,7 +15,7 @@ if ($_SESSION['idRol'] != 1)
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Formas de pago - Admin</title>
+<title>Marcas - Admin</title>
 <?php include "../includes/includes.php";?>
 </head>
 
@@ -35,11 +35,11 @@ if ($_SESSION['idRol'] != 1)
             <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <a href="registrarFormaDePago.php"> 
-                    <h4 class="card-title">Formas de pago 
+                <a href="registrarMarca.php"> 
+                    <h4 class="card-title">Marcas 
                         <span class="float-right"> 
                             <button type="button" class="btn btn-success btn-fw" >
-                                <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nueva forma de pago 
+                                <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nueva marca 
                             </button> 
                         </span>
                     </h4>
@@ -49,15 +49,15 @@ if ($_SESSION['idRol'] != 1)
                     <thead>
                         <tr>
                             <th>
-                                Codigo
-                            </th>
+                                No.
+                            </th>   
                             <th>
-                                Forma de pago
+                                Marca
                             </th>
                         </tr>
                     </thead>
                     <?php
-                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `FORMASDEPAGO` WHERE ESTATUS = 1;");
+                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `marcas` WHERE ESTATUS = 1;");
 
                         mysqli_close($conection);
 
@@ -67,28 +67,22 @@ if ($_SESSION['idRol'] != 1)
                             while ($datos = mysqli_fetch_array($consulta)){
                                 ?>
                     <tbody>
-                    <tr>
-                        <input type="hidden" name="IDFORMADEPAGO" value="<?php echo $datos['IDFORMADEPAGO']; ?>">
-                        
-                        <td>
-                        <?php echo $datos['CODIGO']; ?>
-                        </td>
-                        <td>
-                        <?php echo $datos['FORMADEPAGO']; ?>
-                        </td>
-                        
-                        <td>
-                        <a class="btn btn-dark sm" href="../sistema/actualizarFormaPago.php?id=<?php echo $datos['IDFORMADEPAGO']?>">Editar</a>
-                        
-                        |
-                        <a class="btn btn-danger sm" href="eliminarFormaDePago.php?id=<?php echo $datos['IDFORMADEPAGO']?>">Eliminar</a>
-                        </td>
-                        
+                        <tr>
+                            
+                            <td>
+                                <?php echo $datos['IDMARCA']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['MARCA']; ?>
+                            </td>
+                            <td>
+                                <a class="btn btn-dark sm" href="../sistema/actualizarMarca.php?id=<?php echo $datos['IDMARCA']?>">Editar</a>
+                                |
+                                <a class="btn btn-danger sm" href="eliminarMarca.php?id=<?php echo $datos['IDMARCA']?>">Eliminar</a>
+                            </td>
                         </tr>
-                        
                     </tbody>
                     <?php 
-						
 					}
 				}
 			?>

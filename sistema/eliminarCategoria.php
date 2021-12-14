@@ -102,7 +102,7 @@
 
                     <form method="post" action="">
                         <input type="hidden" name="IDCATEGORIA"  value="<?php echo $IDCATEGORIA; ?>">
-                        <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
+                        <a href="VistaCategorias.php" class="btn btn-danger">Cancelar</a>
                         <input type="submit" value="Aceptar" class="btn btn-primary" >
                     </form>
                   </div>

@@ -9,28 +9,27 @@ include "../conexionBD.php";
 
 if (!empty($_POST)) 
 {
-    if(empty($_POST['codigo']) || empty($_POST['categoria']) )
+    if(empty($_POST['medida']) )
     {
         echo '<script type="text/javascript">
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $idcategoria = $_GET['id'];
-        $codigo = $_POST['codigo'];
-        $categoria = $_POST['categoria'];
+        $idmedida = $_GET['id'];
+        $medida = $_POST['medida'];
 
-        $query_actualizar = mysqli_query($connectionTrans,"UPDATE `categorias` SET `CODIGO` = '$codigo', `CATEGORIA` = '$categoria' 
-                                                            WHERE `categorias`.`IDCATEGORIA` = '$idcategoria';");
+        $query_actualizar = mysqli_query($connectionTrans,"UPDATE `medidas` SET `MEDIDA` = '$medida' WHERE `medidas`.`IDMEDIDA` = '$idmedida';");
+                //echo $query_insert;
                 if ($query_actualizar) 
                 {
                     echo '<script type="text/javascript">
                     alert("Registro modificado correctamente!");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaMedidas.php"
                     </script>';
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al modificar el registro");
-                    self.location = "VistaCategorias.php"
+                    self.location = "VistaMedidas.php"
                     </script>';
                 }
 
@@ -40,22 +39,21 @@ if (!empty($_POST))
 //mostrar datos desde lista
 
 if(empty($_GET['id'])){
-    header('location: VistaCategorias.php');
+    header('location: VistaMedidas.php');
     mysqli_close($connectionTrans);
 }
 $id_eliminar = $_GET['id'];
 
-$consulta_categoria = mysqli_query($connectionTrans, "SELECT * FROM `categorias` WHERE IDCATEGORIA = $id_eliminar");
+$consultar_registro = mysqli_query($connectionTrans, "SELECT * FROM `medidas` WHERE IDMEDIDA = $id_eliminar");
 
-$resultado_busq = mysqli_num_rows($consulta_categoria);
+$resultado_busq = mysqli_num_rows($consultar_registro);
 
 if($resultado_busq == 0){
-        header('location: VistaCategorias.php');
+        header('location: VistaMedidas.php');
     }else{
-        while($datos = mysqli_fetch_array($consulta_categoria)){
-            $idcategoria = $datos['IDCATEGORIA'];
-            $codigo = $datos['CODIGO'];
-            $categoria = $datos['CATEGORIA'];
+        while($datos = mysqli_fetch_array($consultar_registro)){
+            $idmedida = $datos['IDMEDIDA'];
+            $medida = $datos['MEDIDA'];
     }
 }
 
@@ -69,7 +67,7 @@ if($resultado_busq == 0){
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Categorias - Admin</title>
+<title>Actualización de unidad de medida</title>
 <?php include "../includes/includes.php";?>
 
 <link rel="shortcut icon" href="../images/logo.ico" />
@@ -92,21 +90,17 @@ if($resultado_busq == 0){
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Actualizar categorías</h4>
+                <h4 class="card-title">Actualizar Unidades de Medida</h4>
                 <p class="card-description">
-                    Modificar Categoría               </p>
+                    Modificar unidades de medida              </p>
                 <form class="forms-sample" method="post">
                 <div class="form-group">
-                    <label >Código</label>
-                    <input type="text" class="form-control"  name="codigo" placeholder="Codigo" value="<?php echo $codigo; ?>">
-                </div>
-                <div class="form-group">
-                    <label >Categoría</label>
-                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría" value="<?php echo $categoria; ?>">
+                    <label >Nombre de unidad de medida</label>
+                    <input type="text" class="form-control" name="medida" placeholder="Unidad de medida" value="<?php echo $medida; ?>">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
-                <a href="VistaCategorias.php" class="btn btn-danger">Cancelar</a>
+                <a href="VistaMedidas.php" class="btn btn-danger">Cancelar</a>
                 </form>
             </div>
             </div>
