@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2021 a las 19:38:08
+-- Tiempo de generación: 15-12-2021 a las 23:34:11
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -63,7 +63,14 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_user`, `usuario`, `clave`, `nombre`, `codserie`, `accesoempresa`, `id_rol`, `estatus`) VALUES
 (1, 'admin', 'admin', 'JULIO CABRERA', '01001', 'ADMINISTRADOR', 1, 1),
-(2, 'user', '12345', 'Usuario1', '02001', 'USUARIOS VARIOS', 2, 1);
+(2, 'jperez', 'user123', 'Juan Perez', '02001', 'USUARIO VENTAS', 2, 0),
+(3, 'lcastro', 'lcastro123', 'Luis Castro', '02002', 'VENTAS 3', 2, 1),
+(4, 'mvaliente', '12345', 'Mario Valiente', '02003', 'VENTAS 4', 2, 0),
+(5, 'cvaldez', '12345', 'Carlos Valdez', '02003', 'VENTAS 5', 2, 1),
+(6, 'mcastañeda', 'mcastañeda', 'Marlon Castañeda', '02004', 'Ventas', 2, 1),
+(7, 'mesteban', 'mesteban', 'Marvin Esteban', '02005', 'Ventas', 2, 1),
+(8, 'lpelico', 'lpelico123', 'Luis Pelico', '01002', 'Administrador', 1, 1),
+(9, 'msanchez', 'msanchez123', 'Mario Sanchez', '02010', 'Ventas', 2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -96,7 +103,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
