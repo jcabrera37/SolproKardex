@@ -23,7 +23,6 @@ if (!empty($_POST))
 
         $query_insert = mysqli_query($connectionTrans,"INSERT INTO `CATEGORIAS` (`IDCATEGORIA`, `CODIGO`, `CATEGORIA`) 
                                                         VALUES (NULL, '$codigo', '$categoria');");
-                                                //echo $query_insert;
                 if ($query_insert) 
                 {
                     echo '<script type="text/javascript">

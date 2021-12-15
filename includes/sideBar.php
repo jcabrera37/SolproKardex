@@ -72,7 +72,7 @@
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="#">Inventairo Valuado</a></li>
               <li class="nav-item"> <a class="nav-link" href="#">Inventairo por Categoría</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarProducto.php">Registrar Productos</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaProductos.php">Productos</a></li>
               <li class="nav-item"> <a class="nav-link" href="#">Estadística</a></li>
             </ul>
           </div>

@@ -15,7 +15,7 @@ if ($_SESSION['idRol'] != 1)
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Categorias - Admin</title>
+<title>Marcas - Admin</title>
 <?php include "../includes/includes.php";?>
 </head>
 
@@ -35,60 +35,79 @@ if ($_SESSION['idRol'] != 1)
             <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                <a href="registrarCategoria.php"> 
-                    <h4 class="card-title">Categorias 
+                <h4 class="card-title">Productos </h4>
+                <div align="right">
+                <a href="registrarProducto.php"> 
                         <span class="float-right"> 
                             <button type="button" class="btn btn-success btn-fw" >
-                                <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nueva categoría 
+                                <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nuevo 
                             </button> 
                         </span>
-                    </h4>
                 </a>
+                </div>
+                
+                <!-- tabla -->
                 <div class="table-responsive">
                     <table class="table table-striped">
+                        <?php
+                           // echo $valor = $_POST['CATG'];
+                        ?>
                     <thead>
                         <tr>
+                            <th>
+                                Categoría.
+                            </th>   
                             <th>
                                 Codigo
                             </th>
                             <th>
-                                Categoría
+                                Descripción
+                            </th>
+                            <th>
+                                Medida
+                            </th>
+                            <th>
+                                Marca
+                            </th>
+                            <th>
+                                Costo Unitario
                             </th>
                         </tr>
                     </thead>
                     <?php
-                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `CATEGORIAS` WHERE ESTATUS = '1'");
+                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `productos` WHERE ESTATUS = '1'");
 
-                        mysqli_close($conection);
+                        mysqli_close($connectionTrans);
 
                         $resultado = mysqli_num_rows($consulta);
 
                         if ($resultado > 0){
                             while ($datos = mysqli_fetch_array($consulta)){
-                                ?>
+                    ?>
                     <tbody>
-                    <tr>
-                        <input type="hidden" name="IDCATEGORIA" value="<?php echo $datos['IDCATEGORIA']; ?>">
-                        
-                        <td>
-                        <?php echo $datos['CODIGO']; ?>
-                        </td>
-                        <td>
-                        <?php echo $datos['CATEGORIA']; ?>
-                        </td>
-                        
-                        <td>
-                        <a class="btn btn-dark sm" href="../sistema/actualizarCategoria.php?id=<?php echo $datos['IDCATEGORIA']?>">Editar</a>
-                        
-                        |
-                        <a class="btn btn-danger sm" href="eliminarCategoria.php?id=<?php echo $datos['IDCATEGORIA']?>">Eliminar</a>
-                        </td>
-                        
+                        <tr>
+                            <input type="hidden" name="IDPRODUCTO" value="<?php echo $datos['IDPRODUCTO']; ?>">
+                            <td>
+                                <?php echo $datos['CATEGORIA']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['CODIGO']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['NOMBRE']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['MEDIDA']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['MARCA']; ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['COSTOUNITARIO']; ?>
+                            </td>
                         </tr>
-                        
                     </tbody>
                     <?php 
-						
 					}
 				}
 			?>
