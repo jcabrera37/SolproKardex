@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2021 a las 23:33:38
+-- Tiempo de generación: 16-12-2021 a las 20:27:38
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -42,7 +42,8 @@ INSERT INTO `categorias` (`IDCATEGORIA`, `CODIGO`, `CATEGORIA`, `ESTATUS`) VALUE
 (1, '001', 'FILTROS', 1),
 (2, '002', 'FAJAS', 1),
 (3, '101', 'FERRETERIA', 1),
-(4, '111', 'CINCHOS', 1);
+(4, '111', 'CINCHOS', 1),
+(5, '003', 'BATERIAS', 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,8 @@ INSERT INTO `marcas` (`IDMARCA`, `MARCA`, `ESTATUS`) VALUES
 (2, 'STANLEY', 1),
 (3, 'COLIMA', 1),
 (4, 'LUNA', 0),
-(5, 'ROTOPLAS', 1);
+(5, 'ROTOPLAS', 1),
+(6, 'LTH', 1);
 
 -- --------------------------------------------------------
 
@@ -135,6 +137,7 @@ INSERT INTO `medidas` (`IDMEDIDA`, `MEDIDA`, `ESTATUS`) VALUES
 CREATE TABLE `productos` (
   `IDPRODUCTO` bigint(20) NOT NULL,
   `CODIGO` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `COD_PROD` varchar(6) COLLATE utf8_spanish_ci NOT NULL,
   `NOMBRE` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `CATEGORIA` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `SECCION` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
@@ -168,13 +171,9 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`IDPRODUCTO`, `CODIGO`, `NOMBRE`, `CATEGORIA`, `SECCION`, `MARCA`, `MEDIDA`, `SERIE`, `NUMEROORIGINAL`, `EMINIMA`, `CANTAPEDIR`, `COSTOUNITARIO`, `PCTUTILIDAD`, `VENTAUNITARIO`, `PCTUTILIDAD2`, `VENTAUNITARIO2`, `PCTUTILIDAD3`, `VENTAUNITARIO3`, `PCTUTILIDAD4`, `VENTAUNITARIO4`, `EINICIAL`, `ENTRADAS`, `SALIDAS`, `COSTOANTERIOR`, `PCTDESCUENTO`, `PROVEEDOR`, `APLICACIONES`, `SACARSINEXITENCIA`, `ESTATUS`) VALUES
-(1, '00100001', 'Faja f0154', '001', 'F25', 'FHL', '123X125X35', '1201001410', '154', 4, 25, 75, 50, 125, 12, 125, 15, 130, 10, 110, 15, 25, 10, 65, 7, 'FHL FAJAS', 'FAJA DE ALTERNADOR', '1', 1),
-(2, '00100002', 'FILTRO DE AIRE', '001', 'F25', 'PROTUL', 'UN', '1201001578', '155', 4, 25, 75, 50, 125, 12, 125, 15, 130, 10, 110, 15, 25, 10, 65, 7, 'FHL FAJAS', 'FILTRO PARA AUTOMOVIL ', '1', 1),
-(3, '00200001', 'FAJA DE ALTERNADOR', '002', 'F15', 'FAJAS ', 'UN', '1201001789', '155', 4, 25, 75, 50, 125, 12, 125, 15, 130, 10, 110, 15, 25, 10, 65, 7, 'FHL FAJAS', 'FAJA DE ALTERNADOR ', '1', 1),
-(4, '00100003', 'Filtro Aire', '001', 'F25', 'PROTUL', 'UN', '120100141158', '125', 4, 25, 75, 50, 125, 12, 125, 15, 130, 10, 110, 15, 25, 10, 65, 7, 'FHL FAJAS', 'Filtro de aire plastico 12\"', 'si', 1),
-(5, '100004', 'Filtro AR345', '001', 'PLANTA BAJA Numero 3', 'LUNA', 'UN', '55224875574434', '145', 5, 45, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 1),
-(6, '1', 'Martillo de 12\"', '101', 'SEGUNDO NIVEL', 'PROTUL', 'UN', '552244585744', '12025', 5, 45, 75, 10, 75, 12, 77, 15, 79, 17, 80, 12, 28, 20, 22, 5, 'PROTUL S.A.', 'Martillo mango de madera', 'si', 1);
+INSERT INTO `productos` (`IDPRODUCTO`, `CODIGO`, `COD_PROD`, `NOMBRE`, `CATEGORIA`, `SECCION`, `MARCA`, `MEDIDA`, `SERIE`, `NUMEROORIGINAL`, `EMINIMA`, `CANTAPEDIR`, `COSTOUNITARIO`, `PCTUTILIDAD`, `VENTAUNITARIO`, `PCTUTILIDAD2`, `VENTAUNITARIO2`, `PCTUTILIDAD3`, `VENTAUNITARIO3`, `PCTUTILIDAD4`, `VENTAUNITARIO4`, `EINICIAL`, `ENTRADAS`, `SALIDAS`, `COSTOANTERIOR`, `PCTDESCUENTO`, `PROVEEDOR`, `APLICACIONES`, `SACARSINEXITENCIA`, `ESTATUS`) VALUES
+(1, '001', '001001', 'Filtro AR34558', '001', 'PLANTA BAJA', 'PROTUL', 'UN', '552248755896234', '1558', 5, 45, 25, 10, 75, 12, 77, 15, 79, 17, 80, 12, 28, 20, 22, 5, 'TAFiltros', 'Filtro de aceite', 'si', 1),
+(2, '001', '003001', 'BATERIA 15X114', '003', 'PLANTA BAJA', 'PROTUL', 'UN', '55224875574434', '147', 5, 45, 25, 10, 75, 12, 77, 15, 79, 17, 80, 12, 28, 20, 22, 5, 'TAFiltros', 'Bateria de automovil', 'si', 1);
 
 -- --------------------------------------------------------
 
@@ -276,7 +275,7 @@ ALTER TABLE `tiposdemovto`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `IDCATEGORIA` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IDCATEGORIA` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `formasdepago`
@@ -288,7 +287,7 @@ ALTER TABLE `formasdepago`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `IDMARCA` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IDMARCA` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `medidas`
@@ -300,7 +299,7 @@ ALTER TABLE `medidas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IDPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IDPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `secciones`

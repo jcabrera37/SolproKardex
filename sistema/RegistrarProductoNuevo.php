@@ -8,7 +8,8 @@ if ($_SESSION['idRol'] != 1)
 include "../conexionBD.php";
 
 $cat = $_GET['categoria'];
-$codigo = $_GET['codigo'];
+//$codigo = $_GET['CODIGO'];
+$codigo = $_GET['codigoCat'];
 $medida = $_GET['um'];
 $nombre = $_GET['descripcion'];
 $marca = $_GET['marca'];
@@ -35,13 +36,28 @@ $sacarsinexistencia = $_GET['sacarsinexistencia'];
 $proveedor = $_GET['proveedor'];
 $aplicaciones = $_GET['aplicaciones'];
 
+
+$cod = 0;
+
 if($codigo == " "){
     $codigo = 0;
 }
-$codigo_nuevo = $codigo + 1;
 
-$query_insert = mysqli_query($connectionTrans, "INSERT INTO `productos` (`IDPRODUCTO`, `CODIGO`, `NOMBRE`, `CATEGORIA`, `SECCION`, `MARCA`, `MEDIDA`, `SERIE`, `NUMEROORIGINAL`, `EMINIMA`, `CANTAPEDIR`, `COSTOUNITARIO`, `PCTUTILIDAD`, `VENTAUNITARIO`, `PCTUTILIDAD2`, `VENTAUNITARIO2`, `PCTUTILIDAD3`, `VENTAUNITARIO3`, `PCTUTILIDAD4`, `VENTAUNITARIO4`, `EINICIAL`, `ENTRADAS`, `SALIDAS`, `COSTOANTERIOR`, `PCTDESCUENTO`, `PROVEEDOR`, `APLICACIONES`, `SACARSINEXITENCIA`, `ESTATUS`) 
-                                                VALUES (NULL, '$codigo_nuevo', '$nombre', '$cat', '$seccion', '$marca', '$medida',
+$cod = $codigo + 1;
+if ($cod < 10) {
+    $cod = strval("0".$cod);
+}
+if ($cod < 100) {
+    $cod = strval("0".$cod);
+}
+
+$cod1 = strval($cat);
+$cod2 = strval($cod);
+
+$codigo_registrar = $cod1.$cod2;
+
+$query_insert = mysqli_query($connectionTrans, "INSERT INTO `productos` (`IDPRODUCTO`, `CODIGO`, `COD_PROD`,`NOMBRE`, `CATEGORIA`, `SECCION`, `MARCA`, `MEDIDA`, `SERIE`, `NUMEROORIGINAL`, `EMINIMA`, `CANTAPEDIR`, `COSTOUNITARIO`, `PCTUTILIDAD`, `VENTAUNITARIO`, `PCTUTILIDAD2`, `VENTAUNITARIO2`, `PCTUTILIDAD3`, `VENTAUNITARIO3`, `PCTUTILIDAD4`, `VENTAUNITARIO4`, `EINICIAL`, `ENTRADAS`, `SALIDAS`, `COSTOANTERIOR`, `PCTDESCUENTO`, `PROVEEDOR`, `APLICACIONES`, `SACARSINEXITENCIA`, `ESTATUS`) 
+                                                VALUES (NULL, '$cod', '$codigo_registrar','$nombre', '$cat', '$seccion', '$marca', '$medida',
                                                 '$serie', '$numoriginal', '$eminima', '$cantapedir', '$costounitario',
                                                 '$pcutilidad', '$ventaunitario', '$pcutilidad2', '$ventaunitario2', 
                                                 '$pcutilidad3', '$ventaunitario3', '$pcutilidad4', '$ventaunitario4', 

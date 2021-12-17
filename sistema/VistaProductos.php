@@ -76,9 +76,6 @@ if ($_SESSION['idRol'] != 1)
                     </thead>
                     <?php
                         $consulta = mysqli_query($connectionTrans, "SELECT * FROM `productos` WHERE ESTATUS = '1'");
-
-                        mysqli_close($connectionTrans);
-
                         $resultado = mysqli_num_rows($consulta);
 
                         if ($resultado > 0){
@@ -87,11 +84,25 @@ if ($_SESSION['idRol'] != 1)
                     <tbody>
                         <tr>
                             <input type="hidden" name="IDPRODUCTO" value="<?php echo $datos['IDPRODUCTO']; ?>">
+                            <input type="hidden" name="CATEGORIA" value="<?php echo $datos['CATEGORIA']; ?>">
+                            <input type="hidden" name="CODIGO" value="<?php echo $datos['CODIGO']; ?>">
+                            <?php
+                                $categoria_buscada = $datos['CATEGORIA'];
+
+                                $consultaCat = mysqli_query($connectionTrans, "SELECT CATEGORIA FROM `categorias` WHERE CODIGO = '$categoria_buscada';");
+                                $resultCat = mysqli_num_rows($consultaCat);
+                                    if($resultCat > 0){
+                                        while ($datosCat = mysqli_fetch_array($consultaCat)){
+                                        ?>
+                                        <td>
+                                            <?php echo $datosCat['CATEGORIA']; ?>
+                                        </td>
+                                        <?php
+                                        }
+                                    }
+                                        ?>
                             <td>
-                                <?php echo $datos['CATEGORIA']; ?>
-                            </td>
-                            <td>
-                                <?php echo $datos['CODIGO']; ?>
+                                <?php echo $datos['COD_PROD']; ?>
                             </td>
                             <td>
                                 <?php echo $datos['NOMBRE']; ?>
@@ -105,11 +116,17 @@ if ($_SESSION['idRol'] != 1)
                             <td>
                                 <?php echo $datos['COSTOUNITARIO']; ?>
                             </td>
+                            <td>
+                                <a class="btn btn-dark sm" href="../sistema/actualizarProducto.php?id=<?php echo $datos['IDPRODUCTO'];?>">Editar</a>
+                                |
+                                <a class="btn btn-danger sm" href="eliminarProducto.php?id=<?php echo $datos['IDPRODUCTO'];?>">Eliminar</a>
+                            </td>
                         </tr>
                     </tbody>
                     <?php 
 					}
 				}
+                
 			?>
                     </table>
                 </div>

@@ -104,20 +104,8 @@ if (!empty($_POST))
 
                 
             <form class="forms-sample" method="get" action="RegistrarProductoNuevo.php">
-            
-                <div class="row">
-                    <div class="col-3">
-                            <label >Categoria</label>
-                            <input type="text" class="form-control" name="categoria" placeholder="Categoria"  value="<?php 
-                            if (!empty($_POST)) 
-                            {
-                            echo $categoriaseleccionada;
-                            }?>" readonly>
-                    </div>
-
-                    <!-- codigo -->
-                    <div class="col-2">
-                        <label >Codigo</label>
+            <!-- codigo -->
+            <div class="col-2">
                     <?php
                         if(!empty($_POST)){
                         $query_prod =  mysqli_query($connectionTrans,"SELECT CODIGO FROM productos WHERE CATEGORIA = '$categoriaseleccionada' ORDER BY CODIGO DESC LIMIT 1;" );
@@ -131,26 +119,36 @@ if (!empty($_POST))
                                             $codigo_recuperado = $data_prod['CODIGO'];
 
                             ?>
-                                <input type="text" class="form-control" name="codigo" placeholder="codigo" value="<?php 
+                                <input type="hidden" class="form-control" name="codigoCat" placeholder="codigo" value="<?php 
                                     echo $codigo_recuperado; ?>" readonly>
                             <?php
                                 }
                         }
                         else{
-                            $codigo_recuperado = 0000;
+                            $codigo_recuperado = "0";
                             ?>
-                            <input type="text" class="form-control" name="codigo" placeholder="codigo" value="<?php 
+                            <input type="hidden" class="form-control" name="codigoCat" placeholder="codigo" value="<?php 
                                     echo $codigo_recuperado; ?>" readonly>
                             <?php
                         }
                     }else{
                         ?>
-                        <input type="text" class="form-control" name="codigo" placeholder="Codigo"  value="0" readonly>
+                        <input type="hidden" class="form-control" name="codigoCat" placeholder="Codigo"  value="0" readonly>
                     <?php
                     }
 					?>
                     </div>
                     <!-- codigo -->
+                
+                <div class="row">
+                    <div class="col-3">
+                            <label >Categoria</label>
+                            <input type="text" class="form-control" name="categoria" placeholder="Categoria"  value="<?php 
+                            if (!empty($_POST)) 
+                            {
+                            echo $categoriaseleccionada;
+                            }?>" readonly>
+                    </div>
 
                     <?php
                         $query_UM =  mysqli_query($connectionTrans,"SELECT * FROM `medidas`" );
@@ -219,7 +217,7 @@ if (!empty($_POST))
                     </div>
                     <div class="col-6">
                         <label >Serie</label>
-                        <input type="text" class="form-control" name="serie" placeholder="Número de serie" required>
+                        <input type="text" class="form-control" name="serie" placeholder="Número de serie"  required>
                     </div>
                 </div>
                 <div class="row">
@@ -248,87 +246,87 @@ if (!empty($_POST))
                     </div>
                     <div class="col-4">
                         <label >Venta unitario</label>
-                        <input type="text" class="form-control" name="ventaunitario" placeholder="Venta Unitario" required>
+                        <input type="text" class="form-control" name="ventaunitario" placeholder="Venta Unitario" required
+                        >
                     </div>
                 </div>
                 <div class="row">
                     
                     <div class="col-4">
                         <label >Porcentaje Utilidad 2</label>
-                        <input type="text" class="form-control" name="pcutilidad2" placeholder="Pct Utilidad 2" required>
+                        <input type="text" class="form-control" name="pcutilidad2" placeholder="Pct Utilidad 2" >
                     </div>
                     <div class="col-4">
                         <label >Venta Unitario 2</label>
-                        <input type="text" class="form-control" name="ventaunitario2" placeholder="Venta unitario 2" required>
+                        <input type="text" class="form-control" name="ventaunitario2" placeholder="Venta unitario 2" >
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
                         <label >Porcentaje Utilidad 3</label>
-                        <input type="text" class="form-control" name="pcutilidad3" placeholder="PC Utilidad 3" required>
+                        <input type="text" class="form-control" name="pcutilidad3" placeholder="PC Utilidad 3" >
                     </div>
                     <div class="col-4">
                         <label >Venta Unitario 3</label>
-                        <input type="text" class="form-control" name="ventaunitario3" placeholder="Venta unitario 3" required>
+                        <input type="text" class="form-control" name="ventaunitario3" placeholder="Venta unitario 3" >
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
                         <label >Porcentaje Utilidad 4</label>
-                        <input type="text" class="form-control" name="pcutilidad4" placeholder="PC Utilidad 4" required>
+                        <input type="text" class="form-control" name="pcutilidad4" placeholder="PC Utilidad 4" >
                     </div>
                     <div class="col-4">
                         <label >Venta Unitario 4</label>
-                        <input type="text" class="form-control" name="ventaunitario4" placeholder="Venta unitario 4" required>
+                        <input type="text" class="form-control" name="ventaunitario4" placeholder="Venta unitario 4" >
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
                         <label >Existencia Inicial</label>
-                        <input type="text" class="form-control" name="einicial" placeholder="Existencia Inicial" required>
+                        <input type="text" class="form-control" name="einicial" placeholder="Existencia Inicial" >
                     </div>
                     <div class="col-4">
                         <label >Entradas</label>
-                        <input type="text" class="form-control" name="entradas" placeholder="Entradas" required>
+                        <input type="text" class="form-control" name="entradas" placeholder="Entradas" >
                     </div>
                     <div class="col-4">
                         <label >Salidas</label>
-                        <input type="text" class="form-control" name="salidas" placeholder="Salidas" required>
+                        <input type="text" class="form-control" name="salidas" placeholder="Salidas" >
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-3">
                         <label >Costo Anterior</label>
-                        <input type="text" class="form-control" name="costoanterior" placeholder="Costo Anterior" required>
+                        <input type="text" class="form-control" name="costoanterior" placeholder="Costo Anterior" >
                     </div>
                     <div class="col-3">
                         <label >Porcentaje Descuento</label>
-                        <input type="text" class="form-control" name="descuento" placeholder="Descuento" required>
+                        <input type="text" class="form-control" name="descuento" placeholder="Descuento" >
                     </div>
                     <div class="col-3">
                         <label >Sacar sin existencia</label>
-                        <input type="text" class="form-control" name="sacarsinexistencia" placeholder="Sacar sin existencia" required>
+                        <input type="text" class="form-control" name="sacarsinexistencia" placeholder="Sacar sin existencia" >
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-3">
                         <label >Proveedor</label>
-                        <input type="text" class="form-control" name="proveedor" placeholder="Proveedor" required>
+                        <input type="text" class="form-control" name="proveedor" placeholder="Proveedor" >
                     </div>
                     <div class="col-9">
                         <label >Aplicaciones</label>
-                        <input type="text" class="form-control" name="aplicaciones" placeholder="Aplicaciones" required>
+                        <input type="text" class="form-control" name="aplicaciones" placeholder="Aplicaciones" >
                     </div>
                 </div>
                 <br><br>
                 <center>
                     <a href="VistaProductos.php" class="btn btn-danger">Cancelar </a>
-                    <a href="RegistrarProductoNuevo.php" class="btn btn-primary mr-2">Registrar </a>
                     <button type="submit" class="btn btn-primary mr-2">Guardar  </button>
                 </center>
                 
