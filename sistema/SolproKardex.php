@@ -18,6 +18,15 @@
   <title>SolproKardex - Admin</title>
   <link rel="shortcut icon" href="../images/logo.ico">
   <?php include "../includes/includes.php"; ?>
+  <link rel="stylesheet" href="../css/styleCalendar.css">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
 </head>
 <body>
@@ -32,11 +41,39 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <center><img src="../images/portada.jpg" alt="portada" width="1366"></center>
+            <div class="col-lg-8 grid-margin stretch-card">
+              <center><img src="../images/portada.jpg" alt="portada"class="img-fluid" width="1366"></center>
             </div>
+            <div class="col-lg-4 " >
+              <!-- Calendar -->
+              <div class="calendar">
+                <div class="month">
+                  <i class="fas fa-angle-left prev" style="color: aliceblue;"></i>
+                  <div class="date">
+                    <h1></h1>
+                    <p><?php echo fechaC() ?></p>
+                  </div>
+                  <i class="fas fa-angle-right next" style="color: aliceblue;"></i>
+                </div>
+                <div class="weekdays">
+                  <div>Dom</div>
+                  <div>Lun</div>
+                  <div>Mar</div>
+                  <div>Mie</div>
+                  <div>Jue</div>
+                  <div>Vie</div>
+                  <div>Sab</div>
+                </div>
+                <div class="days"></div>
+              </div>
+          <!-- Calendar -->
+            </div>
+              
           </div>
           <!-- row end -->
+          
+<br>
+<br><br><br><br><br><br>
         <!-- content-wrapper ends -->
         <!-- partial:./partials/_footer.html -->
         <?php include "../includes/footer.php";?>
@@ -50,6 +87,7 @@
   <!-- container-scroller -->
 
   <?php include "../includes/scriptsJs.php";?>
+  <script src="../includes/scriptCalendar.js"></script>
 </body>
 
 </html>
