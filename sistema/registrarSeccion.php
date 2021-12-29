@@ -15,14 +15,14 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $codigo = $_POST['codigo'];
-        $seccion = $_POST['seccion'];
+        $codigo = $_POST['codigo']; $CD_MY = strtoupper($codigo);
+        $seccion = $_POST['seccion']; $SC_MY = strtoupper($seccion);
        
         
         $estatus = 1; //activo 1 desactivado es 2
 
         $query_insert = mysqli_query($connectionTrans,"INSERT INTO `SECCIONES` (`IDSECCIONES`, `CODIGO`, `SECCION`, `ESTATUS`) 
-                                                    VALUES (NULL, '$codigo', '$seccion', '1');");
+                                                    VALUES (NULL, '$CD_MY', '$SC_MY', '1');");
                 if ($query_insert) 
                 {
                     echo '<script type="text/javascript">
@@ -81,11 +81,11 @@ if (!empty($_POST))
             <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Código</label>
-                    <input type="text" class="form-control"  name="codigo" placeholder="Código">
+                    <input type="text" class="form-control"  name="codigo" placeholder="Código" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label >Nombre sección</label>
-                    <input type="text" class="form-control" name="seccion" placeholder="Nombre de la sección">
+                    <input type="text" class="form-control" name="seccion" placeholder="Nombre de la sección" style="text-transform: uppercase;">
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
                 <a href="VistaSecciones.php" class="btn btn-danger">Cancelar</a>

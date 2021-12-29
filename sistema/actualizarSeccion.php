@@ -17,7 +17,7 @@ if (!empty($_POST))
     }else{
         $idseccion = $_GET['id'];
         $codigo = $_POST['codigo'];
-        $seccion = $_POST['seccion'];
+        $seccion = strtoupper($_POST['seccion']);
 
         $query_actualizar = mysqli_query($connectionTrans,"UPDATE `secciones` SET `CODIGO` = '$codigo', `SECCION` = '$seccion' WHERE `secciones`.`IDSECCIONES` = '$idseccion';");
                 //echo $query_insert;
@@ -100,11 +100,11 @@ if($resultado_busq == 0){
                 <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Código</label>
-                    <input type="text" class="form-control"  name="codigo" placeholder="Codigo" value="<?php echo $codigo; ?>">
+                    <input type="text" class="form-control"  name="codigo" placeholder="Codigo" value="<?php echo $codigo; ?>" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label >Sección</label>
-                    <input type="text" class="form-control" name="seccion" placeholder="Sección" value="<?php echo $seccion; ?>">
+                    <input type="text" class="form-control" name="seccion" placeholder="Sección" value="<?php echo $seccion; ?>" style="text-transform: uppercase;">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

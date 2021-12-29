@@ -15,10 +15,10 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $marca = $_POST['marca'];
+        $marca = $_POST['marca']; $MC_MY = strtoupper($marca);
         $estatus = 1; //activo 1 desactivado es 2
         $query_insert = mysqli_query($connectionTrans,"INSERT INTO `marcas` (`IDMARCA`, `MARCA`, `ESTATUS`) 
-                                                        VALUES (NULL, '$marca', '$estatus');");
+                                                        VALUES (NULL, '$MC_MY', '$estatus');");
                                                 //echo $query_insert;
                 if ($query_insert) 
                 {
@@ -78,7 +78,7 @@ if (!empty($_POST))
             <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre Marca</label>
-                    <input type="text" class="form-control" name="marca" placeholder="Nombre de Marca a registrar">
+                    <input type="text" class="form-control" name="marca" placeholder="Nombre de Marca a registrar" style="text-transform: uppercase;">
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
                 <a href="VistaMarcas.php" class="btn btn-danger">Cancelar</a>

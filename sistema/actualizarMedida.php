@@ -16,7 +16,7 @@ if (!empty($_POST))
         </script>';
     }else{
         $idmedida = $_GET['id'];
-        $medida = $_POST['medida'];
+        $medida = strtoupper($_POST['medida']);
 
         $query_actualizar = mysqli_query($connectionTrans,"UPDATE `medidas` SET `MEDIDA` = '$medida' WHERE `medidas`.`IDMEDIDA` = '$idmedida';");
                 //echo $query_insert;
@@ -96,7 +96,7 @@ if($resultado_busq == 0){
                 <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre de unidad de medida</label>
-                    <input type="text" class="form-control" name="medida" placeholder="Unidad de medida" value="<?php echo $medida; ?>">
+                    <input type="text" class="form-control" name="medida" placeholder="Unidad de medida" value="<?php echo $medida; ?>" style="text-transform: uppercase;">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

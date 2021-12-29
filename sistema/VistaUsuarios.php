@@ -70,6 +70,21 @@ if ($_SESSION['idRol'] != 1)
                         </tr>
                     </thead>
                     <?php
+                        //paginador
+                        $sql_registros = mysqli_query($conection,"SELECT COUNT(*) AS total_registros FROM usuarios WHERE ESTATUS = 1;");
+                        $result_registros = mysqli_fetch_array($sql_registros);
+                        $total_registros = $result_registros['total_registros'];
+
+                        $reg_pagina = 5;//total de registros por paginas
+
+                        if (empty($_GET['pagina'])) {
+                            $pagina = 1;
+                        }else{
+                            $pagina = $_GET['pagina'];
+                        }
+                        $desde = ($pagina-1) * $reg_pagina;
+                        $total_paginas = ceil($total_registros / $reg_pagina);
+
                         $consulta = mysqli_query($conection, "SELECT u.id_user, u.usuario, u.nombre, u.codserie, u.id_rol, r.nombre_rol
                         from usuarios u
                         INNER JOIN rol r
@@ -88,6 +103,7 @@ if ($_SESSION['idRol'] != 1)
                         <input type="hidden" name="idusuario" value="<?php echo $datos['id_user']; ?>">
                         
                         <td>
+                            
                         <?php echo $datos['usuario']; ?>
                         </td>
                         <td>
@@ -101,7 +117,7 @@ if ($_SESSION['idRol'] != 1)
                         </td>
                         <td>
                         <a class="btn btn-dark sm" href="../sistema/actualizarUsuario.php?id=<?php echo $datos['id_user']?>">Editar</a>
-                        <?php if($datos['id_rol'] != 1) { ?>
+                        <?php if($datos['id_user'] != 1) { ?>
                         |
                         <a class="btn btn-danger sm" href="eliminarUsuario.php?id=<?php echo $datos['id_user']?>">Eliminar</a>
                             <?php }?>
@@ -121,6 +137,22 @@ if ($_SESSION['idRol'] != 1)
             </div>
             </div>
         </div><!-- row ends -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item"><a class="page-link" href="?pagina=<?php echo 1;?>">Primer</a></li>
+                    <?php
+                        for ($i=1; $i <= $total_paginas; $i++) { 
+                            if ($i == $pagina) {
+                                echo '<li class="page-item active"><a class="page-link">'.$i.'</a></li>';
+                            }else{
+                                echo '<li class="page-item"><a class="page-link" href="?pagina='.$i.'">'.$i.'</a></li>';
+                            }
+                            
+                        }
+                    ?>
+                    <li class="page-item"><a class="page-link" href="?pagina=<?php echo $total_paginas;?>">Última</a></li>
+                </ul>
+            </nav>
         </div><!-- content-wrapper ends -->
         
         <?php include "../includes/footer.php";?>

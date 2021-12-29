@@ -17,7 +17,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../../pages/forms/basic_elements.html">
+          <a class="nav-link" href="../sistema/venta.php">
             <i class="mdi mdi-store menu-icon"></i>
             <span class="menu-title">Ventas</span>
           </a>
@@ -34,6 +34,27 @@
             <span class="menu-title">Ajustes</span>
           </a>
         </li>
+
+        <li class="nav-item sidebar-category">
+          <p>Inventario</p>
+          <span></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-store menu-icon"></i>
+            <span class="menu-title">Inventario</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="#">Inventairo Valuado</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Inventairo por Categoría</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaProductos.php">Productos</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Estadística</a></li>
+            </ul>
+          </div>
+        </li>
+
 
         <li class="nav-item sidebar-category">
           <p>Configuraciones</p>
@@ -57,30 +78,6 @@
             </ul>
           </div>
         </li>
-
-        <li class="nav-item sidebar-category">
-          <p>Inventario</p>
-          <span></span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <i class="mdi mdi-palette menu-icon"></i>
-            <span class="menu-title">Inventario</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="#">Inventairo Valuado</a></li>
-              <li class="nav-item"> <a class="nav-link" href="#">Inventairo por Categoría</a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaProductos.php">Productos</a></li>
-              <li class="nav-item"> <a class="nav-link" href="#">Estadística</a></li>
-            </ul>
-          </div>
-        </li>
-
-        
-
-        
 
         <li class="nav-item sidebar-category">
           <p>Apps</p>

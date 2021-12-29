@@ -49,18 +49,32 @@ if ($_SESSION['idRol'] != 1)
                     <thead>
                         <tr>
                             <th>
-                                No.
+                                ID.
                             </th>   
                             <th>
-                                Marca
+                                MARCA
                             </th>
                         </tr>
                     </thead>
                     <?php
-                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `marcas` WHERE ESTATUS = 1;");
+                        //paginador
+                        $sql_registros = mysqli_query($connectionTrans,"SELECT COUNT(*) AS total_registros FROM marcas WHERE ESTATUS = 1;");
+                        $result_registros = mysqli_fetch_array($sql_registros);
+                        $total_registros = $result_registros['total_registros'];
 
+                        $reg_pagina = 5;//total de registros por paginas
+
+                        if (empty($_GET['pagina'])) {
+                            $pagina = 1;
+                        }else{
+                            $pagina = $_GET['pagina'];
+                        }
+                        $desde = ($pagina-1) * $reg_pagina;
+                        $total_paginas = ceil($total_registros / $reg_pagina);
+
+                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `marcas` WHERE ESTATUS = 1
+                                                                    ORDER BY MARCA LIMIT $desde,$reg_pagina;");
                         mysqli_close($conection);
-
                         $resultado = mysqli_num_rows($consulta);
 
                         if ($resultado > 0){
@@ -92,6 +106,24 @@ if ($_SESSION['idRol'] != 1)
             </div>
             </div>
         </div><!-- row ends -->
+        
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item"><a class="page-link" href="?pagina=<?php echo 1;?>">Primer</a></li>
+            <?php
+                for ($i=1; $i <= $total_paginas; $i++) { 
+                    if ($i == $pagina) {
+                        echo '<li class="page-item active"><a class="page-link">'.$i.'</a></li>';
+                    }else{
+                        echo '<li class="page-item"><a class="page-link" href="?pagina='.$i.'">'.$i.'</a></li>';
+                    }
+                    
+                }
+            ?>
+            <li class="page-item"><a class="page-link" href="?pagina=<?php echo $total_paginas;?>">Última</a></li>
+        </ul>
+    </nav>
+
         </div><!-- content-wrapper ends -->
         
         <?php include "../includes/footer.php";?>

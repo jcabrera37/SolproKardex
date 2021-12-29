@@ -17,7 +17,7 @@ if (!empty($_POST))
     }else{
         $idcategoria = $_GET['id'];
         $codigo = $_POST['codigo'];
-        $categoria = $_POST['categoria'];
+        $categoria = strtoupper($_POST['categoria']);
 
         $query_actualizar = mysqli_query($connectionTrans,"UPDATE `categorias` SET `CODIGO` = '$codigo', `CATEGORIA` = '$categoria' 
                                                             WHERE `categorias`.`IDCATEGORIA` = '$idcategoria';");
@@ -102,7 +102,7 @@ if($resultado_busq == 0){
                 </div>
                 <div class="form-group">
                     <label >Categoría</label>
-                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría" value="<?php echo $categoria; ?>">
+                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría" value="<?php echo $categoria; ?>" style="text-transform: uppercase;">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

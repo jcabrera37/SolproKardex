@@ -15,14 +15,14 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $codigo = $_POST['codigo'];
-        $formaDePago = $_POST['formaDePago'];
+        $codigo = $_POST['codigo']; $CD_MY = strtoupper($codigo);
+        $formaDePago = $_POST['formaDePago']; $FP_MY = strtoupper($formaDePago);
        
         
         $estatus = 1; //activo 1 desactivado es 2
 
         $query_insert = mysqli_query($connectionTrans,"INSERT INTO `FORMASDEPAGO` (`IDFORMADEPAGO`, `CODIGO`, `FORMADEPAGO`, `ESTATUS` ) 
-                                                        VALUES (NULL, '$codigo', '$formaDePago', '$estatus');");
+                                                        VALUES (NULL, '$CD_MY', '$FP_MY', '$estatus');");
                                                 //echo $query_insert;
                 if ($query_insert) 
                 {
@@ -86,7 +86,7 @@ if (!empty($_POST))
                 </div>
                 <div class="form-group">
                     <label >Forma de Pago</label>
-                    <input type="text" class="form-control" name="formaDePago" placeholder="Nombre de categoría">
+                    <input type="text" class="form-control" name="formaDePago" placeholder="Nombre de categoría" style="text-transform: uppercase;">
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>
                 <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>

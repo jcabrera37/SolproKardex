@@ -16,11 +16,11 @@ if (!empty($_POST))
         </script>';
     }else{
         $iduser = $_GET['id'];
-        $nombre = $_POST['nombre'];
-        $usuario = $_POST['usuario'];
-        $clave = $_POST['clave'];
+        $nombre = strtoupper($_POST['nombre']);
+        $usuario = strtoupper($_POST['usuario']);
+        $clave = strtoupper($_POST['clave']);
         $codserie = $_POST['codserie'];
-        $acceso = $_POST['acceso'];
+        $acceso = strtoupper($_POST['acceso']);
         $rol = $_POST['tipo']; 
         $estatus = 1; //activo 1 desactivado es 2
 
@@ -110,15 +110,15 @@ if($resultado_busq == 0){
                 <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre</label>
-                    <input type="text" class="form-control"  name="nombre" placeholder="Nombre" value="<?php echo $nombre; ?>">
+                    <input type="text" class="form-control"  name="nombre" placeholder="Nombre" value="<?php echo $nombre; ?>" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label >Usuario</label>
-                    <input type="text" class="form-control" name="usuario" placeholder="Usuario" value="<?php echo $usuario; ?>">
+                    <input type="text" class="form-control" name="usuario" placeholder="Usuario" value="<?php echo $usuario; ?>" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label>Clave</label>
-                    <input type="text" class="form-control"  name="clave" placeholder="Clave" value="<?php echo $clave; ?>">
+                    <input type="text" class="form-control"  name="clave" placeholder="Clave" value="<?php echo $clave; ?>" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label>Codigo Serie</label>
@@ -126,7 +126,7 @@ if($resultado_busq == 0){
                 </div>
                 <div class="form-group">
                     <label >Acceso a empresa</label>
-                    <input type="text" class="form-control"  name="acceso" placeholder="Acceso" value="<?php echo $acceso; ?>">
+                    <input type="text" class="form-control"  name="acceso" placeholder="Acceso" value="<?php echo $acceso; ?>" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <?php 

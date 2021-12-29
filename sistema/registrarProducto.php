@@ -141,7 +141,7 @@ if (!empty($_POST))
                     <!-- codigo -->
                 
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-6">
                             <label >Categoria</label>
                             <input type="text" class="form-control" name="categoria" placeholder="Categoria"  value="<?php 
                             if (!empty($_POST)) 
@@ -154,7 +154,7 @@ if (!empty($_POST))
                         $query_UM =  mysqli_query($connectionTrans,"SELECT * FROM `medidas`" );
                         $result_UM = mysqli_num_rows($query_UM);
                     ?>
-                    <div class="col-2">
+                    <div class="col-6">
                             <label >UM</label>
                             <select name="um" class="form-control" >
                             <?php
@@ -169,9 +169,11 @@ if (!empty($_POST))
 					?>
                             </select>
                     </div>
-                    <div class="col-5">
+                </div>
+                <div class="row">
+                    <div class="col-12">
                             <label >Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" placeholder="Descripción de producto" required>
+                            <input type="text" class="form-control" name="descripcion" placeholder="Descripción de producto" required style="text-transform: uppercase;">
                     </div>
                 </div>
                 <div class="row">
@@ -179,7 +181,7 @@ if (!empty($_POST))
                         $query_marca =  mysqli_query($connectionTrans,"SELECT * FROM `marcas`" );
                         $result_marca = mysqli_num_rows($query_marca);
                     ?>
-                    <div class="col-3">
+                    <div class="col-6">
                             <label >Marca</label>
                             <select name="marca" class="form-control" >
                             <?php
@@ -194,7 +196,7 @@ if (!empty($_POST))
                                 ?>
                             </select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6">
                     <?php
                         $query_seccion =  mysqli_query($connectionTrans,"SELECT * FROM `secciones`" );
                         $result_seccion = mysqli_num_rows($query_seccion);
@@ -215,113 +217,128 @@ if (!empty($_POST))
                                 ?>
                             </select>
                     </div>
-                    <div class="col-6">
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
                         <label >Serie</label>
-                        <input type="text" class="form-control" name="serie" placeholder="Número de serie"  required>
+                        <input type="text" class="form-control" name="serie" placeholder="Número de serie"  required >
                     </div>
-                </div>
+                </div>   
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-6">
                             <label >Numero original</label>
-                            <input type="text" class="form-control" name="numerooriginal" placeholder="Número Original" required>
+                            <input type="text" class="form-control" name="numerooriginal" placeholder="Número Original" >
                     </div>
-                    <div class="col-3">
-                            <label >Existencia Mínima</label>
-                            <input type="text" class="form-control" name="eminima" placeholder="Existencia Mínima" required>
+                    <div class="col-6">
+                            <label >Existencia</label>
+                            <input type="text" class="form-control" name="eminima" placeholder="Existencia Mínima" >
                     </div>
-                    <div class="col-3">
-                            <label >Cantidad a Pedir</label>
-                            <input type="text" class="form-control" name="cantapedir" placeholder="Cantidad a pedir" required>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                            <label >Ctdad. a Pedir</label>
+                            <input type="text" class="form-control" name="cantapedir" placeholder="Cantidad a pedir" >
                     </div>
-                    <div class="col-3">
+                    <div class="col-6">
                         <label >Costo unitario</label>
-                        <input type="text" class="form-control" name="costounitario" placeholder="Costo unitario" required>
+                        <input type="text" class="form-control" name="costounitario" placeholder="Costo unitario" >
                     </div>
                 </div>
                 <div class="row">
                     
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Porcentaje Utilidad</label>
-                        <input type="text" class="form-control" name="pcutilidad" placeholder="PC UTILIDAD" required>
+                        <input type="text" class="form-control" name="pcutilidad" placeholder="PC UTILIDAD" >
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Venta unitario</label>
-                        <input type="text" class="form-control" name="ventaunitario" placeholder="Venta Unitario" required
-                        >
+                        <input type="text" class="form-control" name="ventaunitario" placeholder="Venta Unitario" >
                     </div>
                 </div>
                 <div class="row">
                     
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Porcentaje Utilidad 2</label>
                         <input type="text" class="form-control" name="pcutilidad2" placeholder="Pct Utilidad 2" >
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Venta Unitario 2</label>
                         <input type="text" class="form-control" name="ventaunitario2" placeholder="Venta unitario 2" >
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Porcentaje Utilidad 3</label>
                         <input type="text" class="form-control" name="pcutilidad3" placeholder="PC Utilidad 3" >
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Venta Unitario 3</label>
                         <input type="text" class="form-control" name="ventaunitario3" placeholder="Venta unitario 3" >
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Porcentaje Utilidad 4</label>
                         <input type="text" class="form-control" name="pcutilidad4" placeholder="PC Utilidad 4" >
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Venta Unitario 4</label>
                         <input type="text" class="form-control" name="ventaunitario4" placeholder="Venta unitario 4" >
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Existencia Inicial</label>
-                        <input type="text" class="form-control" name="einicial" placeholder="Existencia Inicial" >
+                        <input type="text" class="form-control" name="einicial" placeholder="Existencia Inicial" readonly>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <label >Entradas</label>
-                        <input type="text" class="form-control" name="entradas" placeholder="Entradas" >
+                        <input type="text" class="form-control" name="entradas" placeholder="Entradas"  readonly> 
                     </div>
-                    <div class="col-4">
+                </div>
+                <div class="row">
+                    <div class="col-6">
                         <label >Salidas</label>
-                        <input type="text" class="form-control" name="salidas" placeholder="Salidas" >
+                        <input type="text" class="form-control" name="salidas" placeholder="Salidas" readonly>
+                    </div>
+                    <div class="col-6">
+                        <label >Existencia</label>
+                        <input type="text" class="form-control" name="salidas" placeholder="Salidas" readonly>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-6">
                         <label >Costo Anterior</label>
                         <input type="text" class="form-control" name="costoanterior" placeholder="Costo Anterior" >
                     </div>
-                    <div class="col-3">
+                    <div class="col-6">
                         <label >Porcentaje Descuento</label>
                         <input type="text" class="form-control" name="descuento" placeholder="Descuento" >
-                    </div>
-                    <div class="col-3">
-                        <label >Sacar sin existencia</label>
-                        <input type="text" class="form-control" name="sacarsinexistencia" placeholder="Sacar sin existencia" >
+                        
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-3">
-                        <label >Proveedor</label>
-                        <input type="text" class="form-control" name="proveedor" placeholder="Proveedor" >
+                    <div class="col-6">
+                        <label >Sacar sin existencia</label>
+                        <input type="text" class="form-control" name="sacarsinexistencia" placeholder="Sacar sin existencia" style="text-transform: uppercase;">
                     </div>
-                    <div class="col-9">
+                    <div class="col-6">
+                        <label >Proveedor</label>
+                        <input type="text" class="form-control" name="proveedor" placeholder="Proveedor" style="text-transform: uppercase;">
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-12">
                         <label >Aplicaciones</label>
-                        <input type="text" class="form-control" name="aplicaciones" placeholder="Aplicaciones" >
+                        <input type="text" class="form-control" name="aplicaciones" placeholder="Aplicaciones" style="text-transform: uppercase;">
                     </div>
                 </div>
                 <br><br>

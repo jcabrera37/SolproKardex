@@ -17,7 +17,7 @@ if (!empty($_POST))
     }else{
         $idformadepago = $_GET['id'];
         $codigo = $_POST['codigo'];
-        $formadepago = $_POST['formadepago'];
+        $formadepago = strtoupper($_POST['formadepago']);
 
         $query_actualizar = mysqli_query($connectionTrans,"UPDATE `formasdepago` SET `CODIGO` = '$codigo', `FORMADEPAGO` = '$formadepago' WHERE `formasdepago`.`IDFORMADEPAGO` = '$idformadepago';");
                 //echo $query_insert;
@@ -104,7 +104,7 @@ if($resultado_busq == 0){
                 </div>
                 <div class="form-group">
                     <label >Forma de Pago</label>
-                    <input type="text" class="form-control" name="formadepago" placeholder="Forma de Pago" value="<?php echo $formadepago; ?>">
+                    <input type="text" class="form-control" name="formadepago" placeholder="Forma de Pago" value="<?php echo $formadepago; ?>" style="text-transform: uppercase;">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

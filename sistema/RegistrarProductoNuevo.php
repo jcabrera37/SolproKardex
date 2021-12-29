@@ -11,7 +11,7 @@ $cat = $_GET['categoria'];
 //$codigo = $_GET['CODIGO'];
 $codigo = $_GET['codigoCat'];
 $medida = $_GET['um'];
-$nombre = $_GET['descripcion'];
+$nombre = strtoupper($_GET['descripcion']);
 $marca = $_GET['marca'];
 $seccion = $_GET['seccion'];
 $serie = $_GET['serie'];
@@ -32,9 +32,9 @@ $entradas = $_GET['entradas'];
 $salidas = $_GET['salidas'];
 $costoanterior = $_GET['costoanterior'];
 $descuento = $_GET['descuento'];
-$sacarsinexistencia = $_GET['sacarsinexistencia'];
-$proveedor = $_GET['proveedor'];
-$aplicaciones = $_GET['aplicaciones'];
+$sacarsinexistencia = strtoupper($_GET['sacarsinexistencia']);
+$proveedor = strtoupper($_GET['proveedor']);
+$aplicaciones = strtoupper($_GET['aplicaciones']);
 
 
 $cod = 0;

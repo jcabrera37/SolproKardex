@@ -9,28 +9,27 @@ include "../conexionBD.php";
 
 if (!empty($_POST)) 
 {
-    if(empty($_POST['codigo']) || empty($_POST['seccion']) )
+    if(empty($_POST['marca']))
     {
         echo '<script type="text/javascript">
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $idseccion = $_GET['id'];
-        $codigo = $_POST['codigo'];
-        $seccion = $_POST['seccion'];
+        $idmarca = $_GET['id'];
+        $marca = strtoupper($_POST['marca']);
 
-        $query_actualizar = mysqli_query($connectionTrans,"UPDATE `secciones` SET `CODIGO` = '$codigo', `SECCION` = '$seccion' WHERE `secciones`.`IDSECCIONES` = '$idseccion';");
+        $query_actualizar = mysqli_query($connectionTrans,"UPDATE `marcas` SET `MARCA` = '$marca' WHERE `marcas`.`IDMARCA` = '$idmarca';");
                 //echo $query_insert;
                 if ($query_actualizar) 
                 {
                     echo '<script type="text/javascript">
                     alert("Registro modificado correctamente!");
-                    self.location = "VistaSecciones.php"
+                    self.location = "VistaMarcas.php"
                     </script>';
                 }else{
                     echo '<script type="text/javascript">
                     alert("Error al modificar el registro");
-                    self.location = "VistaSecciones.php"
+                    self.location = "VistaMarcas.php"
                     </script>';
                 }
 
@@ -98,8 +97,8 @@ if($resultado_busq == 0){
                     Modificar Marca               </p>
                 <form class="forms-sample" method="post">
                 <div class="form-group">
-                    <label >Sección</label>
-                    <input type="text" class="form-control" name="marca" placeholder="Marca" value="<?php echo $marca; ?>">
+                    <label >Marcas</label>
+                    <input type="text" class="form-control" name="marca" placeholder="Marca" value="<?php echo $marca; ?>" style="text-transform: uppercase;">
                 </div>
                 
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

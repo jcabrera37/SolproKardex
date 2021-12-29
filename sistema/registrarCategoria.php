@@ -15,14 +15,13 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $codigo = $_POST['codigo'];
-        $categoria = $_POST['categoria'];
-       
+        $codigo = $_POST['codigo']; $CD_MY = strtoupper($codigo);
+        $categoria = $_POST['categoria']; $CT = strtoupper($categoria);
         
         $estatus = 1; //activo 1 desactivado es 2
 
         $query_insert = mysqli_query($connectionTrans,"INSERT INTO `CATEGORIAS` (`IDCATEGORIA`, `CODIGO`, `CATEGORIA`) 
-                                                        VALUES (NULL, '$codigo', '$categoria');");
+                                                        VALUES (NULL, '$CD_MY', '$CT');");
                 if ($query_insert) 
                 {
                     echo '<script type="text/javascript">
@@ -85,7 +84,7 @@ if (!empty($_POST))
                 </div>
                 <div class="form-group">
                     <label >Nombre categoría</label>
-                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría">
+                    <input type="text" class="form-control" name="categoria" placeholder="Nombre de categoría" style="text-transform: uppercase;">
                 </div>
                 <a href="VistaUsuarios.php" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>

@@ -91,7 +91,7 @@ if($resultado_busq == 0){
             $categoria = $datos['CATEGORIA'];
             $codigo = $datos['CODIGO'];
             $cod_prod = $datos['COD_PROD'];
-            $desc = $datos['NOMBRE'];
+            $desc = strtoupper($datos['NOMBRE']);
             $serie = $datos['SERIE'];
             $numoriginal = $datos['NUMEROORIGINAL'];
             $eminima = $datos['EMINIMA'];
@@ -110,9 +110,9 @@ if($resultado_busq == 0){
             $salidas =  $datos['SALIDAS'];
             $costoanterior = $datos['COSTOANTERIOR'];
             $pctdescuento = $datos['PCTDESCUENTO'];
-            $proveedor = $datos['PROVEEDOR'];
-            $aplicaciones = $datos['APLICACIONES'];
-            $sacarsinexistencia = $datos['SACARSINEXITENCIA'];
+            $proveedor =  strtoupper($datos['PROVEEDOR']);
+            $aplicaciones = strtoupper($datos['APLICACIONES']);
+            $sacarsinexistencia = strtoupper($datos['SACARSINEXITENCIA']);
             
     }
 }
@@ -187,7 +187,7 @@ if($resultado_busq == 0){
                     </div>
                     <div class="col-6">
                             <label >Descripción</label>
-                            <input type="text" class="form-control" name="descripcion" placeholder="Descripción de producto"  value="<?php echo $desc; ?>" required>
+                            <input type="text" class="form-control" name="descripcion" placeholder="Descripción de producto"  value="<?php echo $desc; ?>" required style="text-transform: uppercase;">
                     </div>
                 </div>
 
@@ -328,18 +328,18 @@ if($resultado_busq == 0){
                     </div>
                     <div class="col-3">
                         <label >Sacar sin existencia</label>
-                        <input type="text" class="form-control" name="sacarsinexistencia" placeholder="Sacar sin existencia" value="<?php echo $sacarsinexistencia; ?>">
+                        <input type="text" class="form-control" name="sacarsinexistencia" placeholder="Sacar sin existencia" value="<?php echo $sacarsinexistencia; ?>" style="text-transform: uppercase;">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-3">
                         <label >Proveedor</label>
-                        <input type="text" class="form-control" name="proveedor" placeholder="Proveedor" value="<?php echo $proveedor; ?>">
+                        <input type="text" class="form-control" name="proveedor" placeholder="Proveedor" value="<?php echo $proveedor; ?>" style="text-transform: uppercase;">
                     </div>
                     <div class="col-9">
                         <label >Aplicaciones</label>
-                        <input type="text" class="form-control" name="aplicaciones" placeholder="Aplicaciones" value="<?php echo $aplicaciones; ?>">
+                        <input type="text" class="form-control" name="aplicaciones" placeholder="Aplicaciones" value="<?php echo $aplicaciones; ?>" style="text-transform: uppercase;">
                     </div>
                 </div>
                 <br><br>

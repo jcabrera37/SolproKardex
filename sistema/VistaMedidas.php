@@ -37,6 +37,7 @@ if ($_SESSION['idRol'] != 1)
                 <a href="registrarMedida.php"> 
                     <h4 class="card-title">Medidas 
                         <span class="float-right"> 
+                            
                             <button type="button" class="btn btn-success btn-fw" >
                                 <i class="mdi mdi-file-check btn-icon-prepend"></i>  Agregar nueva medida 
                             </button> 
@@ -56,7 +57,23 @@ if ($_SESSION['idRol'] != 1)
                         </tr>
                     </thead>
                     <?php
-                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `medidas` WHERE ESTATUS = 1;");
+                        //PAGINADOR
+                        $sql_registros = mysqli_query($connectionTrans,"SELECT COUNT(*) AS total_registros FROM medidas WHERE ESTATUS = 1;");
+                        $result_registros = mysqli_fetch_array($sql_registros);
+                        $total_registros = $result_registros['total_registros'];
+
+                        $reg_pagina = 5;//total de registros por paginas
+
+                        if (empty($_GET['pagina'])) {
+                            $pagina = 1;
+                        }else{
+                            $pagina = $_GET['pagina'];
+                        }
+                        $desde = ($pagina-1) * $reg_pagina;
+                        $total_paginas = ceil($total_registros / $reg_pagina);
+                        
+                        $consulta = mysqli_query($connectionTrans, "SELECT * FROM `medidas` WHERE ESTATUS = '1' 
+                                                            ORDER BY MEDIDA LIMIT $desde,$reg_pagina;");
                         mysqli_close($conection);
                         $resultado = mysqli_num_rows($consulta);
                         if ($resultado > 0){
@@ -88,6 +105,24 @@ if ($_SESSION['idRol'] != 1)
             </div>
             </div>
         </div><!-- row ends -->
+        <!-- PAGINADOR -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item"><a class="page-link" href="?pagina=<?php echo 1;?>">Primer</a></li>
+                    <?php
+                        for ($i=1; $i <= $total_paginas; $i++) { 
+                            if ($i == $pagina) {
+                                echo '<li class="page-item active"><a class="page-link">'.$i.'</a></li>';
+                            }else{
+                                echo '<li class="page-item"><a class="page-link" href="?pagina='.$i.'">'.$i.'</a></li>';
+                            }
+                            
+                        }
+                    ?>
+                    <li class="page-item"><a class="page-link" href="?pagina=<?php echo $total_paginas;?>">Última</a></li>
+                </ul>
+            </nav>
+        <!-- PAGINADOR -->
         </div><!-- content-wrapper ends -->
         <?php include "../includes/footer.php";?>
     </div> <!-- main-panel ends -->

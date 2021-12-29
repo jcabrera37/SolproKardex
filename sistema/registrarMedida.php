@@ -15,11 +15,12 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $medida = $_POST['medida'];
+        $medida = $_POST['medida']; $MD_MY = strtoupper($medida);
+        
         $estatus = 1; //activo 1 desactivado es 2
 
         $query_insert = mysqli_query($connectionTrans,"INSERT INTO `medidas` (`IDMEDIDA`,  `MEDIDA`, `ESTATUS`) 
-                                                    VALUES (NULL, '$medida', '1');");
+                                                    VALUES (NULL, '$MD_MY', '1');");
                 if ($query_insert) 
                 {
                     echo '<script type="text/javascript">
@@ -75,7 +76,7 @@ if (!empty($_POST))
             <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre de unidad de medida</label>
-                    <input type="text" class="form-control" name="medida" placeholder="Nombre de la unidad de medida">
+                    <input type="text" class="form-control" name="medida" placeholder="Nombre de la unidad de medida" style="text-transform: uppercase;">
                 </div>
                 <a href="VistaMedidas.php" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary mr-2">Guardar</button>

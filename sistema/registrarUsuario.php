@@ -15,16 +15,16 @@ if (!empty($_POST))
         alert("Debe llenar los datos correspondientes");
         </script>';
     }else{
-        $nombre = $_POST['nombre'];
-        $usuario = $_POST['usuario'];
-        $clave = $_POST['clave'];
-        $codserie = $_POST['codserie'];
-        $acceso = $_POST['acceso'];
-        $rol = $_POST['tipo']; 
+        $nombre = $_POST['nombre']; $NOM_MY = strtoupper($nombre);
+        $usuario = $_POST['usuario']; $US_MY = strtoupper($usuario);
+        $clave = $_POST['clave']; $CL_MY = strtoupper($clave);
+        $codserie = $_POST['codserie']; $SR_MY = strtoupper($codserie);
+        $acceso = $_POST['acceso']; $ACC_MY = strtoupper($acceso);
+        $rol = $_POST['tipo']; $ROL_MY = strtoupper($rol);
         $estatus = 1; //activo 1 desactivado es 2
 
         $query_insert = mysqli_query($conection,"INSERT INTO `usuarios` (`id_user`, `nombre`, `usuario`, `clave`, `codserie`, `accesoempresa`, `id_rol`, `estatus`) 
-                                                VALUES (NULL, '$nombre', '$usuario', '$clave', '$codserie', '$acceso', '$rol', '$estatus');");
+                                                VALUES (NULL, '$NOM_MY', '$US_MY', '$CL_MY', '$SR_MY', '$ACC_MY', '$ROL_MY', '$estatus');");
                                                 echo $query_insert;
                 if ($query_insert) 
                 {
@@ -84,23 +84,23 @@ if (!empty($_POST))
             <form class="forms-sample" method="post">
                 <div class="form-group">
                     <label >Nombre</label>
-                    <input type="text" class="form-control"  name="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control"  name="nombre" placeholder="Nombre" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label >Usuario</label>
-                    <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+                    <input type="text" class="form-control" name="usuario" placeholder="Usuario" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label>Clave</label>
-                    <input type="text" class="form-control"  name="clave" placeholder="Clave">
+                    <input type="text" class="form-control"  name="clave" placeholder="Clave" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label>Codigo Serie</label>
-                    <input type="text" class="form-control"  name="codserie" placeholder="Codigo">
+                    <input type="text" class="form-control"  name="codserie" placeholder="Codigo" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <label >Acceso a empresa</label>
-                    <input type="text" class="form-control"  name="acceso" placeholder="Acceso">
+                    <input type="text" class="form-control"  name="acceso" placeholder="Acceso" style="text-transform: uppercase;">
                 </div>
                 <div class="form-group">
                     <?php 
