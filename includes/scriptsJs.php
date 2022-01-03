@@ -5,3 +5,5 @@
 <script src="../vendors/js/template.js"></script>
 <script src="../vendors/js/dashboard.js "></script>
 <script src="../vendors/js/file-upload.js"></script>
+<script src="../vendors/js/jquery-3.6.0.min.js"></script>
+<script src="../includes/search.js"></script>

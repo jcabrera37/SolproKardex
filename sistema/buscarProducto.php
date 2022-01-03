@@ -16,6 +16,8 @@
             $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES 
             FROM productos 
             WHERE ESTATUS = 1;";
+            $alerta = "";
+            $tipoAlerta = "";
 
         }else{
             $op1 = $_POST['TIPO1'];

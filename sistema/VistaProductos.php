@@ -39,17 +39,8 @@ if ($_SESSION['idRol'] != 1)
                 <h4 class="card-title">Productos </h4>
 
                 <div class="row" >
-                    <div class="col-lg-8">
-                        <a href="#"> 
-                            <span class="float-left" > 
-                                <input type="text" name="" id="" class="btn-busqueda" placeholder="Buscar producto...">
-                                <button type="button" class="btn-search" >
-                                    <i class="mdi mdi-file-find"></i>  Buscar
-                                </button> 
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-12">
+                        <div class="col-lg-12">
                         <a href="registrarProducto.php"> 
                             <span class="float-right"> 
                                 <button type="button" class="btn btn-success btn-fw" >
@@ -57,9 +48,23 @@ if ($_SESSION['idRol'] != 1)
                                 </button> 
                             </span>
                         </a>
+                        </div>
+                        <div class="col-lg-1">
+                            
+                        <a href="../sistema/vistaBusqueda.php"> 
+                            <span class="float-right"> 
+                                <button type="button" class="btn btn-primary btn-fw" >
+                                    <i class="mdi mdi-search-web">Buscar...</i> 
+                                </button> 
+                            </span>
+                        </a>
+                        </div>
+                        
+                        
                     </div>
+                    
                 </div>
-                
+                <br>
                 <!-- tabla -->
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
