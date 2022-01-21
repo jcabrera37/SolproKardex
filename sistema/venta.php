@@ -39,7 +39,11 @@
                     </div>
 
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-lg-12">
+=======
+                        <div class="col-lg-6">
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                             <div class="card" style="padding-right: 10px;">
                                 <div class="card-body" style="padding-right: 10px;">
                                     <h4 class="card-title">Buscar Productos</h4>
@@ -54,7 +58,11 @@
                                             <option value="SERIE">SERIE</option>
                                             <option value="APLICACION">APLICACION</option>
                                         </select>
+<<<<<<< HEAD
                                         <input type="text" name="TERMINO2" class="form-control" placeholder="Buscar" value=" " style="width: 100px;  padding: 7px;  padding: 7px; font-size: 10pt;">
+=======
+                                        <input type="text" name="TERMINO2" class="form-control" placeholder="Buscar" style="width: 100px;  padding: 7px;  padding: 7px; font-size: 10pt;">
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                         
                                         <center><button type="submit" class="btn btn-primary" style="width: 20px;"><i class="mdi mdi-search-web"></i></a></button></center>
                                     </form>
@@ -69,7 +77,10 @@
                                         <table class="table table-striped table-bordered table-hover"> 
                                             <thead>
                                                 <tr>
+<<<<<<< HEAD
                                                     <td>Agregar</td>
+=======
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                     <td>COD</td>
                                                     <td>NOMBRE</td>
                                                     <td>EXISTENCIA</td>
@@ -77,7 +88,11 @@
                                                     <td>MARCA</td>
                                                     <td>SERIE</td>
                                                     <td>APLICACIONES</td>
+<<<<<<< HEAD
                                                     
+=======
+                                                    <td>Agregar</td>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                 </tr>
                                             </thead>
                                             <?php
@@ -92,7 +107,10 @@
                                             ?>
                                             <tbody>
                                                 <tr>
+<<<<<<< HEAD
                                                     <td><a href="" style="font-size: 18pt;"><i class="mdi mdi-plus-box"></i></a></td>
+=======
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                     <td><?php echo $datos['COD_PROD']?></td>
                                                     <td><?php echo $datos['NOMBRE']?></td>
                                                     <td><?php echo $datos['EXACTUAL']?></td>
@@ -100,7 +118,11 @@
                                                     <td><?php echo $datos['MARCA']?></td>
                                                     <td><?php echo $datos['SERIE']?></td>
                                                     <td><?php echo $datos['APLICACIONES']?></td>
+<<<<<<< HEAD
                                                     
+=======
+                                                    <td><a href="" style="font-size: 18pt;"><i class="mdi mdi-plus-box"></i></a></td>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                 </tr>
                                             <?php }
                                             }?>
@@ -111,7 +133,10 @@
                             </div>
                         </div>
                         </div>
+<<<<<<< HEAD
                         <!--
+=======
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
@@ -158,7 +183,10 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                                         -->
+=======
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                     </div>
                 </div>
             </div>

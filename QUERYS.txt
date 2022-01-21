@@ -1,9 +1,0 @@
-BD: kardexcfg
-
-TABLA: USUARIOS
-
-
-TABLA: ROLES
-INSERTAR ROLES
---->>> INSERT INTO `rol` (`id_rol`, `nombre_rol`) VALUES (NULL, 'ADMINISTRADOR'), (NULL, 'USUARIOS');
-

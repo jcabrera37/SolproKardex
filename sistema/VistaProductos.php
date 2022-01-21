@@ -151,7 +151,11 @@ if ($_SESSION['idRol'] != 1)
     </div><!-- row ends -->
 
     <!-- PAGINADOR -->
+<<<<<<< HEAD
             <nav aria-label="Page navigation example">
+=======
+    <nav aria-label="Page navigation example">
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                 <ul class="pagination justify-content-end">
                     <li class="page-item"><a class="page-link" href="?pagina=<?php echo 1;?>">Primer</a></li>
                     <?php

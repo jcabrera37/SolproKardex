@@ -64,7 +64,13 @@ if ($_SESSION['idRol'] != 1)
                         <th>
                             Acciones
                         </th>
+<<<<<<< HEAD
                         
+=======
+                        <th>
+                            Ver información
+                        </th>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                         </tr>
                     </thead>
                     <?php
@@ -120,7 +126,11 @@ if ($_SESSION['idRol'] != 1)
                         <a class="btn btn-danger sm" href="eliminarUsuario.php?id=<?php echo $datos['id_user']?>">Eliminar</a>
                             <?php }?>
                         </td>
+<<<<<<< HEAD
                         
+=======
+                        <td><a class="btn btn-warning sm" href="#?id=<?php echo $datos['id_user']?>">Ver</a></td>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                         </tr>
                         
                     </tbody>

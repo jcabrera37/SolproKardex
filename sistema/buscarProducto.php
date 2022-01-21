@@ -11,22 +11,32 @@
     
     if (!empty($_POST)) 
     {
+<<<<<<< HEAD
         if(empty($_POST['TERMINO1'])  )
+=======
+        if(empty($_POST['TERMINO1']) || empty($_POST['TERMINO2']) )
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
         {
             $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES 
             FROM productos 
             WHERE ESTATUS = 1;";
             $alerta = "";
             $tipoAlerta = "";
+<<<<<<< HEAD
             $t1 = "";
             
         }else{
             $consulta = "";
             $op2 = "";
+=======
+
+        }else{
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
             $op1 = $_POST['TIPO1'];
             $t1 = $_POST['TERMINO1'];
             $op2 = $_POST['TIPO2'];
             $t2 = $_POST['TERMINO2'];
+<<<<<<< HEAD
             
             if($op1 == "CODIGO"){
                 
@@ -45,26 +55,56 @@
                 $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES 
                 FROM productos 
                 WHERE MARCA LIKE '$termino1' AND
+=======
+
+            if($op1 == "CODIGO" && $op2 == "NOMBRE"){
+                $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES 
+                FROM productos
+                WHERE COD_PROD = '$t1' AND
+                ESTATUS = 1;";
+            }
+            
+
+            if($op1 == "MARCA" && $op2 == "NOMBRE"){
+                $termino2 = "%".$t2."%";
+                $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES 
+                FROM productos 
+                WHERE MARCA LIKE '$t1' AND
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                 NOMBRE LIKE '$termino2' AND
                 ESTATUS = 1;";
             }
 
             if($op1 == "MARCA" && $op2 == "SERIE"){
+<<<<<<< HEAD
                 $termino1 = "%".$t1."%";
                 $termino2 = "%".$t2."%";
 
                 $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES FROM productos 
                 WHERE MARCA LIKE '$termino1' AND 
+=======
+                $termino2 = "%".$t2."%";
+
+                $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES FROM productos 
+                WHERE MARCA LIKE '$t1' AND 
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                 SERIE LIKE '$termino2' 
                 AND ESTATUS = 1;";
             }
 
             if($op1 == "MARCA" && $op2 == "APLICACION"){
+<<<<<<< HEAD
                 $termino1 = "%".$t1."%";
                 $termino2 = "%".$t2."%";
 
                 $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES FROM productos 
                 WHERE MARCA LIKE '$termino1' AND 
+=======
+                $termino2 = "%".$t2."%";
+
+                $consulta = "SELECT COD_PROD, NOMBRE, EXACTUAL, VENTAUNITARIO, MARCA, SERIE, APLICACIONES FROM productos 
+                WHERE MARCA LIKE '$t1' AND 
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                 APLICACIONES LIKE '$termino2' 
                 AND ESTATUS = 1;";
             }
@@ -101,7 +141,11 @@
                     
 
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-lg-12">
+=======
+                        <div class="col-lg-6">
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                             <div class="card" style="padding-right: 10px;">
                                 <div class="card-body" style="padding-right: 10px;">
                                     <h4 class="card-title">Buscar Productos</h4>
@@ -110,12 +154,17 @@
                                             <option value="MARCA">MARCA</option>
                                             <option value="CODIGO">CODIGO</option>
                                         </select>
+<<<<<<< HEAD
                                         <input type="text" name="TERMINO1" class="form-control" placeholder="Buscar..." style="width: 100px; padding: 7px; font-size: 10pt;">
+=======
+                                        <input type="CODIGO" name="TERMINO1" class="form-control" placeholder="Buscar..." style="width: 100px; padding: 7px; font-size: 10pt;">
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                         <select name="TIPO2" id="" class="form-control" style="width: 120px;  padding: 7px; font-size: 10pt;">
                                             <option value="NOMBRE">NOMBRE</option>
                                             <option value="SERIE">SERIE</option>
                                             <option value="APLICACION">APLICACION</option>
                                         </select>
+<<<<<<< HEAD
                                         <input type="text" name="TERMINO2" class="form-control" placeholder="Buscar" value="..." style="width: 100px;  padding: 7px;  padding: 7px; font-size: 10pt;">
                                         
                                         <center><button type="submit" class="btn btn-primary" style="width: 20px;"><i class="mdi mdi-search-web"></i></a></button></center>
@@ -125,6 +174,15 @@
                                 </div>
                             </div>
                             
+=======
+                                        <input type="text" name="TERMINO2" class="form-control" placeholder="Buscar" style="width: 100px;  padding: 7px;  padding: 7px; font-size: 10pt;">
+                                        
+                                        <center><button type="submit" class="btn btn-primary" style="width: 20px;"><i class="mdi mdi-search-web"></i></a></button></center>
+                                    </form>
+                                </div>
+                            </div>
+
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                             <div class="col-lg-14">
                             <div class="card">
                                 <div class="card-body">
@@ -133,7 +191,10 @@
                                         <table class="table table-striped table-bordered table-hover"> 
                                             <thead>
                                                 <tr>
+<<<<<<< HEAD
                                                     <td>Agregar</td>
+=======
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                     <td>COD</td>
                                                     <td>NOMBRE</td>
                                                     <td>EXISTENCIA</td>
@@ -141,7 +202,11 @@
                                                     <td>MARCA</td>
                                                     <td>SERIE</td>
                                                     <td>APLICACIONES</td>
+<<<<<<< HEAD
                                                     
+=======
+                                                    <td>Agregar</td>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                 </tr>
                                             </thead>
                                             <?php
@@ -156,7 +221,10 @@
                                             ?>
                                             <tbody>
                                                 <tr>
+<<<<<<< HEAD
                                                     <td><a href="#" style="font-size: 18pt;"><i class="mdi mdi-plus-box"></i></a></td>
+=======
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                     <td><?php echo $datos['COD_PROD']?></td>
                                                     <td><?php echo $datos['NOMBRE']?></td>
                                                     <td><?php echo $datos['EXACTUAL']?></td>
@@ -164,7 +232,11 @@
                                                     <td><?php echo $datos['MARCA']?></td>
                                                     <td><?php echo $datos['SERIE']?></td>
                                                     <td><?php echo $datos['APLICACIONES']?></td>
+<<<<<<< HEAD
                                                     
+=======
+                                                    <td><a href="" style="font-size: 18pt;"><i class="mdi mdi-plus-box"></i></a></td>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                                                 </tr>
                                             <?php }
                                             }else{ $alerta = "Ningún registro encontrado!";
@@ -176,7 +248,11 @@
                             </div>
                         </div>
                         </div>
+<<<<<<< HEAD
                         <!--
+=======
+                        
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
@@ -222,8 +298,12 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         </div> 
                     -->
+=======
+                        </div>
+>>>>>>> 811173c93d00daef072d0e3ac8780af83d94fcf7
                     </div>
                     <div class="<?php echo $tipoAlerta; ?>" role="alert">
                         <?php echo $alerta; ?>
