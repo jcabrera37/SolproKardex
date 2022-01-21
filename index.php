@@ -5,7 +5,7 @@
 
 if(!empty($_SESSION['active']))
 {
-  header('location: sistema/');
+  header('location: sistema/SolProKardex.php');
 
 }
 else{
@@ -38,16 +38,22 @@ else{
           if($_SESSION['idRol'] == 1)
           {
             ?>
-            <meta http-equiv="refresh" content="1; url= sistema/SolProKardex.php"/>
+            <meta http-equiv="refresh" content="0.5; url= sistema/SolProKardex.php"/>
+                  <script language = javascript>
+                  alert("Bienvenido!")
+                  </script>
             <?php
-
           }else{
             ?>
             <meta http-equiv="refresh" content="1; url= sistema/usuario.php"/>
+                  <script language = javascript>
+                  alert("Bienvenido!")
+                  </script>
             <?php
           }
         }else{
           $mensaje = "Datos de inicio de sesión incorrectos";
+          session_destroy();
             
         }
       }
@@ -91,6 +97,7 @@ else{
               <div class="form-group">
                 <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
               </div>
+              <div class="alert"><?php echo isset($mensaje)? $mensaje : ''; ?></div>
               <div class="mt-3">
                 <!--<a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="">Inicia Sesión</a>-->
                 <input type="submit" value="INGRESAR" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">

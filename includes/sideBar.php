@@ -12,12 +12,12 @@
           </a>
         </li>
         <li class="nav-item sidebar-category">
-          <p>Components</p>
+          <p>Menú principal</p>
           <span></span>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../../pages/forms/basic_elements.html">
+          <a class="nav-link" href="../sistema/venta.php">
             <i class="mdi mdi-store menu-icon"></i>
             <span class="menu-title">Ventas</span>
           </a>
@@ -36,27 +36,48 @@
         </li>
 
         <li class="nav-item sidebar-category">
+          <p>Inventario</p>
+          <span></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-store menu-icon"></i>
+            <span class="menu-title">Inventario</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="#">Inventairo Valuado</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Inventairo por Categoría</a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaProductos.php">Productos</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Estadística</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item sidebar-category">
           <p>Configuraciones</p>
           <span></span>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <i class="mdi mdi mdi-settings-box menu-icon"></i>
-            <span class="menu-title">Registros</span>
+            <span class="menu-title">Configuraciones</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Usuarios </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Categorias </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Secciones </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Marcas </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Medidas </a></li>
-              <li class="nav-item"> <a class="nav-link" href="../sistema/registrarUsuario.php"> Consultas y Reportes </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaUsuarios.php"> Usuarios </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaCategorias.php"> Categorias </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaSecciones.php"> Secciones </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaFormasDePago.php"> Formas de Pago </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaMarcas.php"> Marcas </a></li>
+              <li class="nav-item"> <a class="nav-link" href="../sistema/VistaMedidas.php"> Medidas </a></li>
+              <li class="nav-item"> <a class="nav-link" href="#"> Consultas y Reportes </a></li>
             </ul>
           </div>
         </li>
-        
 
         <li class="nav-item sidebar-category">
           <p>Apps</p>
