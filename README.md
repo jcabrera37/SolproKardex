@@ -1,2 +1,0 @@
-# SolproKardex
-Sistema web facturación
