@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2021 a las 20:27:38
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.12
+-- Tiempo de generación: 10-02-2022 a las 16:45:17
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,6 +48,92 @@ INSERT INTO `categorias` (`IDCATEGORIA`, `CODIGO`, `CATEGORIA`, `ESTATUS`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id_cliente` bigint(20) NOT NULL,
+  `NIT` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `RAZONSOCIAL` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `DIRECCION` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `DIASCREDITO` int(11) NOT NULL,
+  `LIMITECREDITO` float NOT NULL,
+  `TELEONOS` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `id_compras` int(11) NOT NULL,
+  `SERIE` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO` bigint(20) NOT NULL,
+  `FECHA` datetime NOT NULL,
+  `NIT` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `FORMADEPAGO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `ESTADO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `USUARIO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `TRANSACCION` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detallemovtos`
+--
+
+CREATE TABLE `detallemovtos` (
+  `ID_MOVTOS` bigint(20) NOT NULL,
+  `SERIE` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO` bigint(20) NOT NULL,
+  `COD_PROD` varchar(6) COLLATE utf8_spanish_ci NOT NULL,
+  `UNIDADES` float NOT NULL,
+  `PRC_UNI` float NOT NULL,
+  `PCT_DESC` float NOT NULL,
+  `DESCUENTO` float NOT NULL,
+  `COSTO_VENTA` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entradas`
+--
+
+CREATE TABLE `entradas` (
+  `id_entradas` int(11) NOT NULL,
+  `SERIE` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO` bigint(20) NOT NULL,
+  `FECHA` datetime NOT NULL,
+  `USUARIO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `TRANSACCION` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fel`
+--
+
+CREATE TABLE `fel` (
+  `id_fel` int(11) NOT NULL,
+  `SERIE` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO` bigint(20) NOT NULL,
+  `FEL_FECHA` datetime NOT NULL,
+  `FEL_SERIE` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `FEL_NUMERO` bigint(20) NOT NULL,
+  `UUID` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `LINK` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
+  `ESTADO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `MOTIVO` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `formasdepago`
 --
 
@@ -66,7 +152,6 @@ INSERT INTO `formasdepago` (`IDFORMADEPAGO`, `CODIGO`, `FORMADEPAGO`, `ESTATUS`)
 (1, 'FP1', 'EFECTIVO', 1),
 (2, 'FP2', 'TARJETA DE CREDITO', 1),
 (3, 'FR3', 'CHEQUE', 1),
-(4, 'FR4', '', 0),
 (5, 'FR5', 'CREDITO', 1),
 (6, 'FP5', 'DEBITO', 1);
 
@@ -131,6 +216,25 @@ INSERT INTO `medidas` (`IDMEDIDA`, `MEDIDA`, `ESTATUS`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `ncel`
+--
+
+CREATE TABLE `ncel` (
+  `id_ncel` int(11) NOT NULL,
+  `FEL_SERIE` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `FEL_NUMERO` bigint(20) NOT NULL,
+  `NCEL_FECHA` datetime NOT NULL,
+  `NCEL_SERIE` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `NCEL_NUMERO` bigint(20) NOT NULL,
+  `UUID` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `LINK` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
+  `ESADO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `MOTIVO` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -178,6 +282,36 @@ INSERT INTO `productos` (`IDPRODUCTO`, `CODIGO`, `COD_PROD`, `NOMBRE`, `CATEGORI
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id_proveedor` int(11) NOT NULL,
+  `NIT` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `RAZONSOCIAL` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `DIRECCION` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `LIMITECREDITO` int(11) NOT NULL,
+  `TELEFONOS` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `salidas`
+--
+
+CREATE TABLE `salidas` (
+  `id_salidas` bigint(20) NOT NULL,
+  `SERIE` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO` bigint(20) NOT NULL,
+  `FECHA` datetime NOT NULL,
+  `USUARIO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `TRANSACCION` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `secciones`
 --
 
@@ -221,6 +355,25 @@ INSERT INTO `tiposdemovto` (`IDTIPOMOVTO`, `TIPOMOVTO`) VALUES
 (5, 'NOTA DE DEBITO'),
 (6, 'NOTA DE CREDITO');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id_venta` bigint(20) NOT NULL,
+  `SERIE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO` bigint(20) NOT NULL,
+  `FECHA` datetime NOT NULL,
+  `NIT` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `FORMADEPAGO` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `ESTADO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `USUARIO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `COBRO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `TRANSACCION` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -230,6 +383,36 @@ INSERT INTO `tiposdemovto` (`IDTIPOMOVTO`, `TIPOMOVTO`) VALUES
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`IDCATEGORIA`);
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`id_compras`);
+
+--
+-- Indices de la tabla `detallemovtos`
+--
+ALTER TABLE `detallemovtos`
+  ADD PRIMARY KEY (`ID_MOVTOS`);
+
+--
+-- Indices de la tabla `entradas`
+--
+ALTER TABLE `entradas`
+  ADD PRIMARY KEY (`id_entradas`);
+
+--
+-- Indices de la tabla `fel`
+--
+ALTER TABLE `fel`
+  ADD PRIMARY KEY (`id_fel`);
 
 --
 -- Indices de la tabla `formasdepago`
@@ -250,10 +433,28 @@ ALTER TABLE `medidas`
   ADD PRIMARY KEY (`IDMEDIDA`);
 
 --
+-- Indices de la tabla `ncel`
+--
+ALTER TABLE `ncel`
+  ADD PRIMARY KEY (`id_ncel`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`IDPRODUCTO`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`id_proveedor`);
+
+--
+-- Indices de la tabla `salidas`
+--
+ALTER TABLE `salidas`
+  ADD PRIMARY KEY (`id_salidas`);
 
 --
 -- Indices de la tabla `secciones`
@@ -268,6 +469,12 @@ ALTER TABLE `tiposdemovto`
   ADD PRIMARY KEY (`IDTIPOMOVTO`);
 
 --
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id_venta`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -276,6 +483,36 @@ ALTER TABLE `tiposdemovto`
 --
 ALTER TABLE `categorias`
   MODIFY `IDCATEGORIA` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `id_compras` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `detallemovtos`
+--
+ALTER TABLE `detallemovtos`
+  MODIFY `ID_MOVTOS` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `entradas`
+--
+ALTER TABLE `entradas`
+  MODIFY `id_entradas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `fel`
+--
+ALTER TABLE `fel`
+  MODIFY `id_fel` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `formasdepago`
@@ -296,10 +533,28 @@ ALTER TABLE `medidas`
   MODIFY `IDMEDIDA` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT de la tabla `ncel`
+--
+ALTER TABLE `ncel`
+  MODIFY `id_ncel` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `IDPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `salidas`
+--
+ALTER TABLE `salidas`
+  MODIFY `id_salidas` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `secciones`
@@ -312,6 +567,12 @@ ALTER TABLE `secciones`
 --
 ALTER TABLE `tiposdemovto`
   MODIFY `IDTIPOMOVTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id_venta` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
