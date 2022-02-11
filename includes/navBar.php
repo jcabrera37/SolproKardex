@@ -9,6 +9,32 @@
             <a class="navbar-brand brand-logo-mini" href=""><img src="../images/logo.ico" alt="logo"/></a>
           </div>
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Usuario:  <?php echo $_SESSION['Nombre'];?></h4>
+          
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <img src="img/carrito.ico" class="nav-link dropdown-toggle img-fluid" height="20px"
+                width="50px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"></img>
+                  <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                    <table id="lista-carrito" class="table">
+                      <thead>
+                        <tr>
+                          <th>Imagen</th>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                          <th></th>
+                          </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+
+                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                        Compra</a>
+                    </div>
+              </li>
+          </ul>
+          
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item">
               <h4 class="mb-0 font-weight-bold d-none d-xl-block"><?php echo fechaC() ?></h4>
@@ -31,6 +57,8 @@
             </li>
             
           </ul>
+
+                          
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
