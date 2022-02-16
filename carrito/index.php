@@ -39,7 +39,18 @@
         <?php include "../includes/navBar.php";?>
         <!-- panel principal -->
                     
-
+        <div class="row">
+            <div class="col-lg-12">
+                
+                <ol class="breadcrumb">
+                    <li><i class="fa fa-home"></i><a href="principal.php">Inicio</a></li> 
+                    /
+                    <li><i class="fa fa-laptop"></i> Ventas</li>
+                    /
+                    <li><i class="fa fa-laptop"></i> Productos</li>
+                </ol>
+            </div>
+        </div>
         <main>
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
             <h1 class="display-4 mt-4">Lista de Productos</h1>
