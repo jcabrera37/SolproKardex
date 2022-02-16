@@ -17,7 +17,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../sistema/venta.php">
+          <a class="nav-link" href="../carrito">
             <i class="mdi mdi-store menu-icon"></i>
             <span class="menu-title">Ventas</span>
           </a>

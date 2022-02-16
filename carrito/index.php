@@ -19,6 +19,11 @@
 <title>SolproKardex - Ventas</title>
 <link rel="shortcut icon" href="../images/logo.ico">
 <?php include "../includes/includes.php"; ?>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/popper.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<link rel="stylesheet" href="css/sweetalert2.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../css/styleCalendar.css" type="text/css">
@@ -221,7 +226,9 @@
         </div>
     </main>
 
-    
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/pedido.js"></script>
                 
@@ -234,7 +241,7 @@
     </div>
 <!-- container-scroller -->
 
-<?php include "../includes/scriptsJs.php";?>
+
 
 </body>
 
